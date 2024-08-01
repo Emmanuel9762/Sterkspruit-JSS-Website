@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="bg-success">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">
+                <img src="C:\Users\emmanuel ngulube\Desktop\Projects\Websites\Sterkspruit JSS\Assets\Images\STERKSPRUIT JSS.jpg" alt="logo" class="img-fluid" style="max-height: 60px;">
+            </a>
+            <!--
+            <div class="nav-links ml-auto">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contacts.html">Contacts</a></li>
+                    <li><a href="apply.html">Apply to study</a></li>
+                    <li><a href="Academics.html">Academics</a></li>
+                </ul>
+            </div>
+            -->
+            <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
+                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30">
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+    
+    <div class="overlay" onclick="hideSidebar()"></div>
+    
+   <!--create sidebar-->
+   <ul class="sidebar">
+       <li onclick="hideSidebar()"><a href="about.html">About</a></li>
+       <li onclick="hideSidebar()"><a href="contact.html">Contacts</a></li>
+       <li onclick="hideSidebar()"><a href="apply.html">Apply to study</a></li>
+       <li onclick="hideSidebar()"><a href="Academics.html">Academics</a></li>
+       <li onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" fill="white" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 4h18v2H3V4zm0 5h18v2H3V9zm0 5h18v2H3v-2z"/></svg></a></li>
+   </ul>
+
+   <!--Carosuel section-->
+   <section class="carousel">
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="https://cdn.pixabay.com/photo/2017/07/31/11/21/people-2557399_640.jpg" alt="slide1">
+            <div class="carousel-card">
+                <h2>Image 1 Title</h2>
+                <p>Description of Image 1.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="carousel-slide">
+            <img src="content/download.jpeg" alt="School Image 2">
+            <div class="carousel-card">
+                <h2>Image 2 Title</h2>
+                <p>Description of Image 2.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="carousel-slide">
+            <img src="content/class.jpeg" alt="School Image 3">
+            <div class="carousel-card">
+                <h2>Image 3 Title</h2>
+                <p>Description of Image 3.</p>
+                <a href="#">Learn More</a>
+            </div>
+
+        </div>
+        <div class="carousel-slide">
+            <img src="content/cartoon (1).jpeg" alt="School Image 4">
+            <div class="carousel-card">
+                <h2>Image 4 Title</h2>
+                <p>Description of Image 4.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section><!--end of carousel section-->
+
+   <!--Content section-->
+   <section class="title-section">
+    <h1>Welcome to<br> <b>Sterkspruit<br>Junior<br>Secondary<br>School</b></h1>
+</section>
+<section class="content-section">
+    <div class="intro">
+        <img src="content/th (1).jpeg" alt="school-img" >
+        <p> Nomzamo Junior Secondary School, a beacon of education and community spirit since the early 1990s. Founded through the collaborative efforts of the community, parents, and dedicated faculty, our school stands as a testament to the power of unity and shared vision.
+
+            At Nomzamo Junior Secondary School, our motto "Forward Ever, Backward Never" encapsulates our commitment to continuous progress and excellence. We strive to instill in our students a spirit of progression, competence, and lifelong learning.
+        </p>
+    </div>
+    <div class="about">
+        <h2>About Us</h2>
+        <img src="content/th (2).jpeg" alt="About Us Image" height="100px">
+        <p>Established in the early 1990s through the collaborative efforts of the community, parents, and dedicated faculty, Nomzamo Junior Secondary School has been a cornerstone of education and community development.<a href="about.html">Learn More</a></p>
+    </div>
+    <div class="academics">
+        <h2>Academics</h2>
+        <img src="content/th.jpeg" alt="Academics Image">
+        <p>On the Academics page of Nomzamo Junior Secondary School's website, visitors can discover a rich and dynamic academic program designed to inspire and challenge students. Our curriculum is carefully crafted to meet the needs of today's learners, focusing on developing critical thinking, creativity, and practical skills. With a strong emphasis on holistic education, we aim to nurture well-rounded individuals who are prepared to excel in a rapidly changing world.
+
+            At Nomzamo Junior Secondary School, we offer a wide range of subjects and courses that cater to diverse interests and abilities. From traditional academic subjects like mathematics and science to specialized courses in technology and the arts, our goal is to provide students with a well-rounded education that prepares them for future success. Our dedicated team of educators is committed to providing a supportive learning environment where every student can thrive academically and personally.<a href="academics.html">Learn More</a></p>
+    </div>
+</section>
+<div class="code-of-honor">    
+</div>
+
+<footer>
+    <div>
+        <h1>CONTACT US</h1>
+        <p>
+            <b>Phone: 061 324 2568<br>
+            Mobile: 085 256 8626<br>
+            Fax: 072 681 2734<br>
+            </b>
+        </p>
+    </div>
+    <div>
+        <h1>Physical Address</h1>
+        <p>1 Eskom Road,<br>
+        Sterkspruit, 9762</p>
+    </div>
+    <div>
+        <h1>Postal Address</h1>
+        <p>P.O Box 1,<br>
+        Sterkspruit, 9762</p>
+    </div>
+    <div>
+        <h1>Connect</h1>
+        <p class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </p>
+    </div>
+</footer>
+
+   <script src="index.js"></script>
+</body>
+</html>
+

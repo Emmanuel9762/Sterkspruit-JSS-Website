@@ -1,0 +1,240 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(100, 98, 98);
+}
+
+header {
+  background-color: #2ecc71; /* Consistent green color */
+  text-align: center;
+  padding: 20px;
+}
+
+#main-title {
+  color: white;
+  font-size: 2em;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #main-title {
+      font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  #main-title {
+      font-size: 1.2em;
+  }
+}
+
+.intro-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+#intro {
+  flex: 1;
+  padding: 20px;
+}
+
+#intro h1 {
+  font-size: 2em;
+}
+
+#intro p {
+  font-size: 1em;
+}
+
+#intro-img {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#intro-img img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .intro-container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  #intro, #intro-img {
+      padding: 10px;
+  }
+
+  #intro-img {
+      margin-bottom: 20px;
+  }
+}
+
+.history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.history-container img {
+  width: 80%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-container img:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.history-container p {
+  max-width: 600px;
+  font-size: 1.1em;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.cards .card {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  width: 40%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cards .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#card1 {
+  background: linear-gradient(135deg, #f0f0f0, hsl(0, 0%, 85%), #e74c3c, #27ae60);
+}
+
+#card2 {
+  background: linear-gradient(135deg, #f0f0f0, #d9d9d9, #27ae60, #e74c3c); 
+}
+
+.cards h1 {
+  margin: 0 0 10px 0;
+}
+
+.cards p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .cards .card {
+      width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards .card {
+      width: 100%;
+      padding: 15px;
+      margin: 5px;
+  }
+}
+
+.code-of-honor {
+  width: 100%;
+  height: 500px;
+  background-image: url('Front-end/HTML/content/girls.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.code-of-honor .overlay {
+  background-color: rgba(255, 255, 255, 0.7); /* Transparent white overlay */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.code-of-honor .text {
+  position: relative;
+  z-index: 2; /* Ensures the text is on top of the overlay */
+  color: #333; /* Text color */
+  text-align: center;
+  padding: 20px;
+}
+
+.code-of-honor .text h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.code-of-honor .text p {
+  font-size: 1.2em;
+}
+
+footer {
+  background-color: #2ecc71;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  color: #f9f9f9;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+footer div {
+  margin: 10px;
+  flex: 1 1 200px;
+}
+
+footer h1 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+footer p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+footer p b {
+  font-weight: normal;
+}
+
+footer .social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+footer .social-icons a {
+  color: #f9f9f9;
+  text-decoration: none;
+}
+
+footer .social-icons a:hover {
+  color: #ffffff;
+}
+
