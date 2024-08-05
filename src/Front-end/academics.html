@@ -6,21 +6,20 @@
     <title>Academics - Nomzamo JSS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="academics.css">
-</head> 
+</head>
 <body>
     <header class="bg-success text-center p-4">
         <h1 class="text-white">Academics at Nomzamo Junior Secondary School</h1>
-    </header><!-- end of header -->
+    </header>
 
     <div class="container my-5">
-        <!-- Academics Section -->
         <section id="academics" class="mb-5 text-center">
             <img src="https://via.placeholder.com/800x400" alt="Academic Overview" class="img-fluid mb-4">
             <h2>ACADEMICS</h2>
             <p>Nomzamo JSS offers a comprehensive educational program from Grade R to Grade 9, focusing on holistic development and academic excellence. Our curriculum is designed to foster critical thinking, creativity, and a love for learning. We provide a balanced mix of academic, cultural, and sports activities to ensure well-rounded growth for our students.</p>
             <p>Grade Classes: Grade R to Grade 9</p>
             <div class="dropdown mt-4">
-                <button class="btn btn-success dropdown-toggle" type="button" id="subjectsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-success dropdown-toggle" type="button" id="subjectsDropdown" onclick="toggleDropdown('compulsory-subjects'); toggleDropdown('choice-subjects');" aria-haspopup="true" aria-expanded="false">
                     Subjects Offered
                 </button>
                 <div class="dropdown-menu" aria-labelledby="subjectsDropdown">
@@ -49,20 +48,18 @@
             </div>
         </section>
 
-        <!-- Educators Section -->
         <section id="educators" class="mb-5 text-center">
             <img src="https://via.placeholder.com/800x400" alt="Educators" class="img-fluid mb-4">
             <h2>EDUCATORS</h2>
             <p>Our dedicated team of educators at Nomzamo JSS is committed to providing a nurturing and challenging environment for our students. Our faculty members are experts in their respective fields and bring a wealth of knowledge and experience to the classroom. They are passionate about teaching and are dedicated to helping each student achieve their full potential.</p>
         </section>
 
-        <!-- Sports Section -->
         <section id="sports" class="mb-5 text-center">
             <img src="https://via.placeholder.com/800x400" alt="Sports" class="img-fluid mb-4">
             <h2>SPORTS</h2>
             <p>At Nomzamo JSS, we believe in the importance of physical activity and sports as part of a well-rounded education. Our sports program is designed to promote teamwork, discipline, and a healthy lifestyle. We offer a variety of sports to cater to the interests and abilities of all our students.</p>
             <div class="dropdown mt-4">
-                <button class="btn btn-success dropdown-toggle" type="button" id="sportsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-success dropdown-toggle" type="button" id="sportsDropdown" onclick="toggleDropdown('team-sports'); toggleDropdown('individual-sports');" aria-haspopup="true" aria-expanded="false">
                     Sports Offered
                 </button>
                 <div class="dropdown-menu" aria-labelledby="sportsDropdown">
@@ -95,32 +92,41 @@
         <p>&copy; 2024 Nomzamo Junior Secondary School. All rights reserved.</p>
     </footer>
 
-    <!--Rewrite scripts-->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $('#compulsory-subjects-link').click(function(event) {
+        document.addEventListener('DOMContentLoaded', function() {
+    function toggleDropdown(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.classList.toggle('d-none');
+        }
+    }
+
+    window.toggleDropdown = toggleDropdown;
+});
+
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('compulsory-subjects-link').addEventListener('click', function(event) {
                 event.preventDefault();
-                $('#compulsory-subjects').toggleClass('d-none');
+                document.getElementById('compulsory-subjects').classList.toggle('d-none');
             });
 
-            $('#choice-subjects-link').click(function(event) {
+            document.getElementById('choice-subjects-link').addEventListener('click', function(event) {
                 event.preventDefault();
-                $('#choice-subjects').toggleClass('d-none');
+                document.getElementById('choice-subjects').classList.toggle('d-none');
             });
 
-            $('#team-sports-link').click(function(event) {
+            document.getElementById('team-sports-link').addEventListener('click', function(event) {
                 event.preventDefault();
-                $('#team-sports').toggleClass('d-none');
+                document.getElementById('team-sports').classList.toggle('d-none');
             });
 
-            $('#individual-sports-link').click(function(event) {
+            document.getElementById('individual-sports-link').addEventListener('click', function(event) {
                 event.preventDefault();
-                $('#individual-sports').toggleClass('d-none');
+                document.getElementById('individual-sports').classList.toggle('d-none');
             });
         });
     </script>
 </body>
 </html>
+

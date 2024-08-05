@@ -17,6 +17,7 @@ body {
 
 header {
     padding: 10px 0;
+    background-color: #2ecc71; 
 }
 
 header .navbar-brand img {
@@ -27,7 +28,32 @@ header .navbar-brand img {
     transition: transform 0.3s ease;
 }
 
-/*
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-collapse {
+        display: flex;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .overlay {
+        display: none;
+    }
+}
+
+
 .nav-links li a {
     color: #f9f9f9;
     font-size: 20px;
@@ -48,7 +74,35 @@ header .navbar-brand img {
 .nav-links li {
     margin-right: 20px;
 
-}*/
+}
+
+/* Base styles for navigation links */
+.navbar .nav-link {
+    color: white;
+    font-size: 1.1em; /* Adjust size slightly */
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: gray;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 800px) {
+    .navbar .nav-link {
+        display: none; /* Hide nav links */
+    }
+
+    .navbar .hamburger-menu {
+        display: block; /* Show hamburger menu */
+    }
+}
+
+@media (min-width: 801px) {
+    .navbar .hamburger-menu {
+        display: none; /* Hide hamburger menu on larger screens */
+    }
+}
 
 
 /*sidebar

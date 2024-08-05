@@ -39,6 +39,10 @@ p, ul {
     cursor: pointer;
 }
 
+.d-none {
+    display: none;
+}
+
 footer {
     background-color: #2ecc71;
     padding: 20px;
