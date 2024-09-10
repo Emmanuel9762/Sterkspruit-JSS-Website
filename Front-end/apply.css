@@ -1,29 +1,86 @@
+/* Base styles */
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.coming-soon {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+.pdf-download {
+    background-color: #e9ecef;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.pdf-download a {
+    color: #007bff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.pdf-download img {
+    margin-right: 10px;
+}
+
+.form-container {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.6);  /* Reduced opacity for better visibility */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f5f5f5;
-}
-
-form {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-}
-
-form h1, form h2 {
+    font-size: 2em;
+    color: #721c24;
+    z-index: 10;
     text-align: center;
 }
 
-div {
-    margin-bottom: 15px;
+form {
+    filter: blur(2px);  /* Reduced blur effect */
+    pointer-events: none;
+}
+
+.form-section {
+    margin-bottom: 20px;
 }
 
 label {
@@ -33,30 +90,69 @@ label {
 
 input[type="text"],
 input[type="email"],
-input[type="date"],
-select {
+textarea {
     width: 100%;
     padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     box-sizing: border-box;
 }
 
 input[type="radio"],
 input[type="checkbox"] {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .coming-soon, .pdf-download {
+        padding: 10px;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+
+    .form-overlay {
+        font-size: 1.5em;
+    }
+
+    label {
+        font-size: 0.9em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        font-size: 0.9em;
+    }
 }
 
-button:hover {
-    background-color: #45a049;
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    .coming-soon h2, .pdf-download a {
+        font-size: 1em;
+    }
+
+    .form-overlay {
+        font-size: 1.2em;
+    }
+
+    .pdf-download img {
+        width: 20px;
+        height: 20px;
+    }
 }

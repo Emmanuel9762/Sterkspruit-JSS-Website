@@ -4,343 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application for Admission to School</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="apply.css">
 </head>
 <body>
-    <form>
-        <h1>Application for Admission to School</h1>
-        <h2>STERKSPRUIT JUNIOR SECONDARY SCHOOL</h2>
+    <header>
+        <h1 id="main-title">APPLICATIONS AT STERKSPRUIT JUNIOR SECONDARY SCHOOL</h1>
+    </header>
 
-        <div class="form">
-            <label for="grade_applied">Grade Applied For:</label>
-            <input type="text" id="grade_applied" name="grade_applied">
-
-            <label for="highest_grade_passed">Highest Grade Passed:</label>
-            <input type="text" id="highest_grade_passed" name="highest_grade_passed">
-
-            <label for="year_grade_passed">Year When Grade was Passed:</label>
-            <input type="text" id="year_grade_passed" name="year_grade_passed">
-
-            <label for="accession_no">Accession No:</label>
-            <input type="text" id="accession_no" name="accession_no">
+    <div class="container">
+        <div class="coming-soon">
+            <h2>Online Applications Coming Soon</h2>
+            <p>We are currently working on bringing our application process online. Please check back soon for updates.</p>
         </div>
 
-        <div>
-            <label for="surname">Surname:</label>
-            <input type="text" id="surname" name="surname">
-
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name">
-
-            <label for="date_of_birth">Date Of Birth (YYYY/MM/DD):</label>
-            <input type="text" id="date_of_birth" name="date_of_birth">
-
-            <label for="race">Race:</label>
-            <input type="text" id="race" name="race">
-
-            <label for="country_of_residence">Country of Residence:</label>
-            <input type="text" id="country_of_residence" name="country_of_residence">
-
-            <label for="province_of_residence">If SA, indicate province of residence:</label>
-            <input type="text" id="province_of_residence" name="province_of_residence">
-
-            <label for="gender">Gender:</label>
-            <input type="radio" id="male" name="gender" value="Male">
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="Female">
-            <label for="female">Female</label>
-
-            <label for="passport_no">Identification or Passport No:</label>
-            <input type="text" id="passport_no" name="passport_no">
-
-            <label for="citizenship">Citizenship:</label>
-            <input type="text" id="citizenship" name="citizenship">
-
-            <label for="physical_address">Physical Address:</label>
-            <input type="text" id="physical_address" name="physical_address">
-
-            <label for="home_telephone">Home Telephone:</label>
-            <input type="text" id="home_telephone" name="home_telephone">
-
-            <label for="emergency_telephone">Emergency Telephone:</label>
-            <input type="text" id="emergency_telephone" name="emergency_telephone">
-
-            <label for="learner_cell">Learner Cell:</label>
-            <input type="text" id="learner_cell" name="learner_cell">
-
-            <label for="city_suburb">City/Suburb:</label>
-            <input type="text" id="city_suburb" name="city_suburb">
-
-            <label for="postal_code">Postal Code:</label>
-            <input type="text" id="postal_code" name="postal_code">
-
-            <label for="learner_email">Learner Email Address:</label>
-            <input type="email" id="learner_email" name="learner_email">
+        <div class="pdf-download">
+            <a href="#" download>
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/icons/download.svg" alt="Download Icon" width="24" height="24">
+                Download PDF Application Form
+            </a>
         </div>
 
-        <div>
-            <label for="preferred_language">Preferred Language of Instruction:</label>
-            <input type="text" id="preferred_language" name="preferred_language">
+        <div class="form-container">
+            <div class="form-overlay">
+                Applications Coming Soon
+            </div>
+            <form>
+                <h1>Application for Admission to School</h1>
+                <h2>STERKSPRUIT JUNIOR SECONDARY SCHOOL</h2>
 
-            <label for="boarding">Boarder:</label>
-            <input type="radio" id="boarder_yes" name="boarding" value="Yes">
-            <label for="boarder_yes">Yes</label>
-            <input type="radio" id="boarder_no" name="boarding" value="No">
-            <label for="boarder_no">No</label>
+                <!-- Form content starts here -->
+                <div class="form-section">
+                    <label for="grade_applied">Grade Applied For:</label>
+                    <input type="text" id="grade_applied" name="grade_applied">
 
-            <label for="parent_status">Deceased Parent:</label>
-            <input type="checkbox" id="deceased_father" name="parent_status" value="Father">
-            <label for="deceased_father">Father</label>
-            <input type="checkbox" id="deceased_mother" name="parent_status" value="Mother">
-            <label for="deceased_mother">Mother</label>
-            <input type="checkbox" id="deceased_both" name="parent_status" value="Both">
-            <label for="deceased_both">Both</label>
+                    <label for="highest_grade_passed">Highest Grade Passed:</label>
+                    <input type="text" id="highest_grade_passed" name="highest_grade_passed">
 
-            <label for="religion">Religion:</label>
-            <input type="text" id="religion" name="religion">
+                    <!-- Add more form fields here -->
+                </div>
 
-            <label for="pre_primary_education">For Grade 1 only: Indicate pre-primary education received:</label>
-            <input type="checkbox" id="pre_primary_none" name="pre_primary_education" value="None">
-            <label for="pre_primary_none">None</label>
-            <input type="checkbox" id="pre_primary_non_formal" name="pre_primary_education" value="Non Formal">
-            <label for="pre_primary_non_formal">Non Formal</label>
-            <input type="checkbox" id="pre_primary_formal" name="pre_primary_education" value="Formal">
-            <label for="pre_primary_formal">Formal</label>
+                <!-- Add more form sections as needed -->
+
+                <div class="form-section">
+                    <p>I hereby declare that to the best of my knowledge, the above information as supplied is accurate and correct.</p>
+                    <label for="parent_guardian_name">Name of Parent / Guardian:</label>
+                    <input type="text" id="parent_guardian_name" name="parent_guardian_name">
+
+                    <label for="parent_guardian_signature">Signature of Parent / Guardian:</label>
+                    <input type="text" id="parent_guardian_signature" name="parent_guardian_signature">
+
+                    <label for="date">Date:</label>
+                    <input type="text" id="date" name="date">
+                </div>
+            </form>
         </div>
-
-        <div>
-            <label for="previous_school_name">Name of Previous School:</label>
-            <input type="text" id="previous_school_name" name="previous_school_name">
-
-            <label for="previous_school_address">Previous School Address:</label>
-            <input type="text" id="previous_school_address" name="previous_school_address">
-
-            <label for="previous_school_code">Code:</label>
-            <input type="text" id="previous_school_code" name="previous_school_code">
-
-            <label for="previous_school_province">Province:</label>
-            <input type="text" id="previous_school_province" name="previous_school_province">
-
-            <label for="previous_school_country">Country:</label>
-            <input type="text" id="previous_school_country" name="previous_school_country">
-        </div>
-
-        <div>
-            <label for="medical_aid_no">Medical Aid Number:</label>
-            <input type="text" id="medical_aid_no" name="medical_aid_no">
-
-            <label for="medical_aid_name">Medical Aid Name:</label>
-            <input type="text" id="medical_aid_name" name="medical_aid_name">
-
-            <label for="medical_aid_member">Medical Aid Main Member:</label>
-            <input type="text" id="medical_aid_member" name="medical_aid_member">
-
-            <label for="doctor_name">Doctor Name:</label>
-            <input type="text" id="doctor_name" name="doctor_name">
-
-            <label for="doctor_telephone">Doctor Telephone Number:</label>
-            <input type="text" id="doctor_telephone" name="doctor_telephone">
-
-            <label for="doctor_address">Doctor's Address:</label>
-            <input type="text" id="doctor_address" name="doctor_address">
-
-            <label for="medical_condition">Medical Condition:</label>
-            <input type="text" id="medical_condition" name="medical_condition">
-
-            <label for="special_problems">Special Problems Requiring Counseling:</label>
-            <input type="text" id="special_problems" name="special_problems">
-
-            <label for="dexterity">Dexterity of Learner:</label>
-            <input type="checkbox" id="right_handed" name="dexterity" value="Right Handed">
-            <label for="right_handed">Right Handed</label>
-            <input type="checkbox" id="left_handed" name="dexterity" value="Left Handed">
-            <label for="left_handed">Left Handed</label>
-            <input type="checkbox" id="ambidextrous" name="dexterity" value="Ambidextrous">
-            <label for="ambidextrous">Ambidextrous</label>
-        </div>
-
-        <div>
-            <h2>Siblings</h2>
-            <label for="siblings_count">Number of other Children at this school:</label>
-            <input type="text" id="siblings_count" name="siblings_count">
-
-            <label for="siblings_position">Position in the family (e.g., first):</label>
-            <input type="text" id="siblings_position" name="siblings_position">
-
-            <label>Please supply full names below:</label>
-            <label for="sibling_name1">Name:</label>
-            <input type="text" id="sibling_name1" name="sibling_name1">
-            <label for="sibling_grade1">Grade:</label>
-            <input type="text" id="sibling_grade1" name="sibling_grade1">
-
-            <label for="sibling_name2">Name:</label>
-            <input type="text" id="sibling_name2" name="sibling_name2">
-            <label for="sibling_grade2">Grade:</label>
-            <input type="text" id="sibling_grade2" name="sibling_grade2">
-
-            <label for="sibling_name3">Name:</label>
-            <input type="text" id="sibling_name3" name="sibling_name3">
-            <label for="sibling_grade3">Grade:</label>
-            <input type="text" id="sibling_grade3" name="sibling_grade3">
-        </div>
-
-        <div>
-            <h2>Parent / Guardian Information</h2>
-            <p>Complete a SEPARATE parent form for each parent living at a different physical address</p>
-            <label for="parent_title">Title:</label>
-            <input type="text" id="parent_title" name="parent_title">
-
-            <label for="parent_initials">Initials:</label>
-            <input type="text" id="parent_initials" name="parent_initials">
-
-            <label for="parent_surname">Surname:</label>
-            <input type="text" id="parent_surname" name="parent_surname">
-
-            <label for="parent_first_name">First Name:</label>
-            <input type="text" id="parent_first_name" name="parent_first_name">
-
-            <label for="parent_gender">Gender:</label>
-            <input type="radio" id="parent_male" name="parent_gender" value="Male">
-            <label for="parent_male">Male</label>
-            <input type="radio" id="parent_female" name="parent_gender" value="Female">
-            <label for="parent_female">Female</label>
-
-            <label for="parent_language">Home Language:</label>
-            <input type="text" id="parent_language" name="parent_language">
-
-            <label for="parent_race">Race:</label>
-            <input type="text" id="parent_race" name="parent_race">
-
-            <label for="parent_id_no">Identification or Passport No:</label>
-            <input type="text" id="parent_id_no" name="parent_id_no">
-
-            <label for="account_payer">Account Payer:</label>
-            <input type="radio" id="account_payer_yes" name="account_payer" value="Yes">
-            <label for="account_payer_yes">Yes</label>
-            <input type="radio" id="account_payer_no" name="account_payer" value="No">
-            <label for="account_payer_no">No</label>
-
-            <label for="parent_address">Residential Street Address:</label>
-            <input type="text" id="parent_address" name="parent_address">
-
-            <label for="parent_city_suburb">City/Suburb:</label>
-            <input type="text" id="parent_city_suburb" name="parent_city_suburb">
-
-            <label for="parent_code">Code:</label>
-            <input type="text" id="parent_code" name="parent_code">
-
-            <label for="parent_occupation">Occupation:</label>
-            <input type="text" id="parent_occupation" name="parent_occupation">
-
-            <label for="parent_employer">Employer:</label>
-            <input type="text" id="parent_employer" name="parent_employer">
-
-            <label for="spouse_name">Name of Spouse:</label>
-            <input type="text" id="spouse_name" name="spouse_name">
-
-            <label for="spouse_occupation">Occupation of Spouse:</label>
-            <input type="text" id="spouse_occupation" name="spouse_occupation">
-
-            <label for="spouse_id_no">Spouse ID Number:</label>
-            <input type="text" id="spouse_id_no" name="spouse_id_no">
-
-            <label for="learner_resides">Learner resides with this parent:</label>
-            <input type="radio" id="learner_resides_yes" name="learner_resides" value="Yes">
-            <label for="learner_resides_yes">Yes</label>
-            <input type="radio" id="learner_resides_no" name="learner_resides" value="No">
-            <label for="learner_resides_no">No</label>
-
-            <label for="relationship_to_learner">Relationship to Learner:</label>
-            <input type="text" id="relationship_to_learner" name="relationship_to_learner">
-
-            <label for="marital_status">Marital status of parent:</label>
-            <input type="text" id="marital_status" name="marital_status">
-        </div>
-
-        <div>
-            <h2>Correspondence Details</h2>
-            <label for="correspondence_title">Title:</label>
-            <input type="text" id="correspondence_title" name="correspondence_title">
-
-            <label for="correspondence_surname">Surname:</label>
-            <input type="text" id="correspondence_surname" name="correspondence_surname">
-
-            <label for="postal_address">Postal Address:</label>
-            <input type="text" id="postal_address" name="postal_address">
-
-            <label for="postal_city_suburb">City/Suburb:</label>
-            <input type="text" id="postal_city_suburb" name="postal_city_suburb">
-
-            <label for="postal_code">Code:</label>
-            <input type="text" id="postal_code" name="postal_code">
-        </div>
-
-        <div>
-            <h2>Other Contact Details</h2>
-            <label for="home_telephone">Home Telephone:</label>
-            <input type="text" id="home_telephone" name="home_telephone">
-
-            <label for="work_telephone">Work Telephone:</label>
-            <input type="text" id="work_telephone" name="work_telephone">
-
-            <label for="fax_number">Fax Number:</label>
-            <input type="text" id="fax_number" name="fax_number">
-
-            <label for="cell_number">Cell Number:</label>
-            <input type="text" id="cell_number" name="cell_number">
-
-            <label for="spouse_work_telephone">Spouse Work Telephone Number:</label>
-            <input type="text" id="spouse_work_telephone" name="spouse_work_telephone">
-
-            <label for="spouse_cell_number">Spouse Cell Number:</label>
-            <input type="text" id="spouse_cell_number" name="spouse_cell_number">
-
-            <label for="email">E-Mail Address:</label>
-            <input type="email" id="email" name="email">
-
-            <label for="spouse_email">Spouse E-Mail Address:</label>
-            <input type="email" id="spouse_email" name="spouse_email">
-        </div>
-
-        <div>
-            <p>I hereby declare that to the best of my knowledge, the above information as supplied is accurate and correct.</p>
-            <label for="parent_guardian_name">Name of Parent / Guardian:</label>
-            <input type="text" id="parent_guardian_name" name="parent_guardian_name">
-
-            <label for="parent_guardian_signature">Signature of Parent / Guardian:</label>
-            <input type="text" id="parent_guardian_signature" name="parent_guardian_signature">
-
-            <label for="date">Date:</label>
-            <input type="text" id="date" name="date">
-        </div>
-
-        <div>
-            <h2>Office use only:</h2>
-            <label for="date_received">Date:</label>
-            <input type="text" id="date_received" name="date_received">
-
-            <label for="accepted">Accepted:</label>
-            <input type="text" id="accepted" name="accepted">
-
-            <label for="rejected">Rejected:</label>
-            <input type="text" id="rejected" name="rejected">
-
-            <label for="reason_for_rejection">Reason for Rejection:</label>
-            <input type="text" id="reason_for_rejection" name="reason_for_rejection">
-
-            <label for="documentation_received">Documentation Received:</label>
-            <input type="text" id="documentation_received" name="documentation_received">
-
-            <label for="immunisation_record">Immunisation Record:</label>
-            <input type="text" id="immunisation_record" name="immunisation_record">
-
-            <label for="progress_report">Progress Report from Previous School:</label>
-            <input type="text" id="progress_report" name="progress_report">
-
-            <label for="transfer_letter">Transfer Letter from Previous School:</label>
-            <input type="text" id="transfer_letter" name="transfer_letter">
-        </div>
-    </form>
+    </div>
 </body>
 </html>
-
