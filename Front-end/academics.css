@@ -47,8 +47,26 @@ footer {
     background-color: #2ecc71;
     padding: 20px;
     color: #f9f9f9;
+    text-align: center;
 }
 
 footer p {
     margin: 0;
+}
+
+
+#academics, #educators, #sports {
+    text-align: left;
+}
+
+/* Center images within sections */
+#academics img, #educators img, #sports img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center dropdown buttons */
+.dropdown {
+    text-align: center;
 }
