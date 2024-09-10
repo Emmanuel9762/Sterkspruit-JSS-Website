@@ -202,6 +202,13 @@ header {
   }
 }
 
+#map {
+  height: 400px; /* Adjust the height of the map */
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
 footer {
   background-color: #2ecc71;
   padding: 20px;
