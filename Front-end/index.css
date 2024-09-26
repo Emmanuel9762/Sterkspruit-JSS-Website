@@ -242,6 +242,46 @@ header .navbar-brand img {
     color: #333;
 }
 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .carousel-card {
+        max-width: 180px; 
+        font-size: 0.8em;  
+    }
+
+    .carousel-card h2 {
+        font-size: 1em; 
+    }
+
+    .carousel-card p {
+        font-size: 0.8em; 
+    }
+
+    .carousel-card a {
+        font-size: 0.8em; 
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-card {
+        max-width: 150px; /* Even smaller card width for very small screens */
+        font-size: 0.7em;  
+    }
+
+    .carousel-card h2 {
+        font-size: 0.9em; 
+    }
+
+    .carousel-card p {
+        font-size: 0.7em; 
+    }
+
+    .carousel-card a {
+        font-size: 0.7em; 
+    }
+}
+
+
 
 /*Content section*/
 .title-section {
