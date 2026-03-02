@@ -1,223 +1,299 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sterkspruit Junior Secondary School</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
+    <!--include correct relative path for index.css file-->
+    <link rel="stylesheet" href="./Front-end/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- HEADER / NAV -->
     <header>
-        <nav class="navbar">
-            <a class="navbar-brand" href="#">
-                <img src="Assets/STERKSPRUIT JSS.jpg" alt="Sterkspruit JSS Logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="Front-end/about.html">About</a></li>
-                <li><a href="Front-end/contact.html">Contacts</a></li>
-                <li><a href="Front-end/apply.html">Apply to Study</a></li>
-                <li><a href="Front-end/academics.html">Academics</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-        </nav>
+      <nav class="navbar">
+        <a class="navbar-brand" href="#">
+          <img src="Assets/STERKSPRUIT JSS.jpg" alt="Sterkspruit JSS Logo" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="Front-end/about.html">About</a></li>
+          <li><a href="Front-end/contact.html">Contacts</a></li>
+          <li><a href="Front-end/apply.html">Apply to Study</a></li>
+          <li><a href="Front-end/academics.html">Academics</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
     </header>
 
     <!-- SIDEBAR -->
     <div class="overlay" id="overlay"></div>
     <aside class="sidebar" id="sidebar">
-        <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul>
-            <li><a href="Front-end/about.html"><i class="fas fa-info-circle"></i> About</a></li>
-            <li><a href="Front-end/contact.html"><i class="fas fa-phone"></i> Contacts</a></li>
-            <li><a href="Front-end/apply.html"><i class="fas fa-pen"></i> Apply to Study</a></li>
-            <li><a href="Front-end/academics.html"><i class="fas fa-book"></i> Academics</a></li>
-        </ul>
+      <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul>
+        <li>
+          <a href="Front-end/about.html"
+            ><i class="fas fa-info-circle"></i> About</a
+          >
+        </li>
+        <li>
+          <a href="Front-end/contact.html"
+            ><i class="fas fa-phone"></i> Contacts</a
+          >
+        </li>
+        <li>
+          <a href="Front-end/apply.html"
+            ><i class="fas fa-pen"></i> Apply to Study</a
+          >
+        </li>
+        <li>
+          <a href="Front-end/academics.html"
+            ><i class="fas fa-book"></i> Academics</a
+          >
+        </li>
+      </ul>
     </aside>
 
     <!-- HERO / CAROUSEL -->
     <section class="hero" id="hero">
-        <div class="carousel-track" id="carousel-track">
-            <div class="carousel-slide active" data-index="0">
-                <img src="Assets/carousel1.jpg" alt="School Image 1">
-                <div class="slide-overlay"></div>
-            </div>
-            <div class="carousel-slide" data-index="1">
-                <img src="Assets/carousel 2.jpg" alt="School Image 2">
-                <div class="slide-overlay"></div>
-            </div>
-            <div class="carousel-slide" data-index="2">
-                <img src="Assets/carousel3.jpg" alt="School Image 3">
-                <div class="slide-overlay"></div>
-            </div>
-            <div class="carousel-slide" data-index="3">
-                <img src="Assets/carousel4.jpg" alt="School Image 4">
-                <div class="slide-overlay"></div>
-            </div>
+      <div class="carousel-track" id="carousel-track">
+        <div class="carousel-slide active" data-index="0">
+          <img src="Assets/carousel1.jpg" alt="School Image 1" />
+          <div class="slide-overlay"></div>
         </div>
+        <div class="carousel-slide" data-index="1">
+          <img src="Assets/carousel 2.jpg" alt="School Image 2" />
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="carousel-slide" data-index="2">
+          <img src="Assets/carousel3.jpg" alt="School Image 3" />
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="carousel-slide" data-index="3">
+          <img src="Assets/carousel4.jpg" alt="School Image 4" />
+          <div class="slide-overlay"></div>
+        </div>
+      </div>
 
-        <!-- Hero content cards per slide -->
-        <div class="hero-content" id="hero-content">
-            <div class="hero-card active" data-slide="0">
-                <span class="hero-tag">Our Story</span>
-                <h2>More About Us</h2>
-                <p>Learn about our school's mission, vision, and the values that drive us forward every day.</p>
-                <a href="Front-end/about.html" class="btn-hero">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="hero-card" data-slide="1">
-                <span class="hero-tag">We're Here For You</span>
-                <h2>Get in Touch</h2>
-                <p>Have questions or inquiries? Reach out to us—we'd love to hear from you.</p>
-                <a href="Front-end/contact.html" class="btn-hero">Contact Us <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="hero-card" data-slide="2">
-                <span class="hero-tag">Curriculum</span>
-                <h2>Explore Our Academics</h2>
-                <p>A rich academic programme designed to inspire critical thinking and lifelong learning.</p>
-                <a href="Front-end/academics.html" class="btn-hero">Discover <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="hero-card" data-slide="3">
-                <span class="hero-tag">Join Our Community</span>
-                <h2>Apply to Join Us</h2>
-                <p>Ready to be part of Sterkspruit JSS? Begin your application today.</p>
-                <a href="Front-end/apply.html" class="btn-hero">Apply Now <i class="fas fa-arrow-right"></i></a>
-            </div>
+      <!-- Hero content cards per slide -->
+      <div class="hero-content" id="hero-content">
+        <div class="hero-card active" data-slide="0">
+          <span class="hero-tag">Our Story</span>
+          <h2>More About Us</h2>
+          <p>
+            Learn about our school's mission, vision, and the values that drive
+            us forward every day.
+          </p>
+          <a href="Front-end/about.html" class="btn-hero"
+            >Learn More <i class="fas fa-arrow-right"></i
+          ></a>
         </div>
+        <div class="hero-card" data-slide="1">
+          <span class="hero-tag">We're Here For You</span>
+          <h2>Get in Touch</h2>
+          <p>
+            Have questions or inquiries? Reach out to us—we'd love to hear from
+            you.
+          </p>
+          <a href="Front-end/contact.html" class="btn-hero"
+            >Contact Us <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+        <div class="hero-card" data-slide="2">
+          <span class="hero-tag">Curriculum</span>
+          <h2>Explore Our Academics</h2>
+          <p>
+            A rich academic programme designed to inspire critical thinking and
+            lifelong learning.
+          </p>
+          <a href="Front-end/academics.html" class="btn-hero"
+            >Discover <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+        <div class="hero-card" data-slide="3">
+          <span class="hero-tag">Join Our Community</span>
+          <h2>Apply to Join Us</h2>
+          <p>
+            Ready to be part of Sterkspruit JSS? Begin your application today.
+          </p>
+          <a href="Front-end/apply.html" class="btn-hero"
+            >Apply Now <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
 
-        <!-- Carousel Controls -->
-        <div class="carousel-controls">
-            <button class="carousel-btn prev" id="prev-btn" aria-label="Previous slide">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="carousel-dots" id="carousel-dots">
-                <span class="dot active" data-dot="0"></span>
-                <span class="dot" data-dot="1"></span>
-                <span class="dot" data-dot="2"></span>
-                <span class="dot" data-dot="3"></span>
-            </div>
-            <button class="carousel-btn next" id="next-btn" aria-label="Next slide">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+      <!-- Carousel Controls -->
+      <div class="carousel-controls">
+        <button
+          class="carousel-btn prev"
+          id="prev-btn"
+          aria-label="Previous slide"
+        >
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="carousel-dots" id="carousel-dots">
+          <span class="dot active" data-dot="0"></span>
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
+          <span class="dot" data-dot="3"></span>
         </div>
+        <button class="carousel-btn next" id="next-btn" aria-label="Next slide">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
     </section>
 
     <!-- WELCOME BANNER -->
     <section class="welcome-banner">
-        <div class="banner-text">
-            <p class="tagline">Forward Ever, Backward Never</p>
-            <h1>Welcome to <strong>Sterkspruit Junior Secondary School</strong></h1>
+      <div class="banner-text">
+        <p class="tagline">Forward Ever, Backward Never</p>
+        <h1>Welcome to <strong>Sterkspruit Junior Secondary School</strong></h1>
+      </div>
+      <div class="banner-stats">
+        <div class="stat">
+          <span class="stat-num">30+</span>
+          <span class="stat-label">Years of Excellence</span>
         </div>
-        <div class="banner-stats">
-            <div class="stat">
-                <span class="stat-num">30+</span>
-                <span class="stat-label">Years of Excellence</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num">500+</span>
-                <span class="stat-label">Students</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num">40+</span>
-                <span class="stat-label">Dedicated Educators</span>
-            </div>
+        <div class="stat">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Students</span>
         </div>
+        <div class="stat">
+          <span class="stat-num">40+</span>
+          <span class="stat-label">Dedicated Educators</span>
+        </div>
+      </div>
     </section>
 
     <!-- CONTENT CARDS -->
     <section class="content-section">
-        <div class="card reveal">
-            <div class="card-img-wrap">
-                <img src="Assets/intro (1).jpeg" alt="Introduction">
-                <div class="card-img-overlay"></div>
-            </div>
-            <div class="card-body">
-                <span class="card-tag">Our Beginnings</span>
-                <h2>Who We Are</h2>
-                <p>Sterkspruit JSS, a beacon of education and community spirit since the early 1990s. Founded through the collaborative efforts of our community, parents, and faculty — we stand as a testament to unity and shared vision.</p>
-            </div>
+      <div class="card reveal">
+        <div class="card-img-wrap">
+          <img src="Assets/intro (1).jpeg" alt="Introduction" />
+          <div class="card-img-overlay"></div>
         </div>
+        <div class="card-body">
+          <span class="card-tag">Our Beginnings</span>
+          <h2>Who We Are</h2>
+          <p>
+            Sterkspruit JSS, a beacon of education and community spirit since
+            the early 1990s. Founded through the collaborative efforts of our
+            community, parents, and faculty — we stand as a testament to unity
+            and shared vision.
+          </p>
+        </div>
+      </div>
 
-        <div class="card reveal">
-            <div class="card-img-wrap">
-                <img src="Assets/about(2).jpeg" alt="About Us">
-                <div class="card-img-overlay"></div>
-            </div>
-            <div class="card-body">
-                <span class="card-tag">Our School</span>
-                <h2>About Us</h2>
-                <p>A cornerstone of education and community development. Established in the early 1990s, we continue to shape the leaders of tomorrow through commitment and excellence.</p>
-                <a href="Front-end/about.html" class="btn-card">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
+      <div class="card reveal">
+        <div class="card-img-wrap">
+          <img src="Assets/about(2).jpeg" alt="About Us" />
+          <div class="card-img-overlay"></div>
         </div>
+        <div class="card-body">
+          <span class="card-tag">Our School</span>
+          <h2>About Us</h2>
+          <p>
+            A cornerstone of education and community development. Established in
+            the early 1990s, we continue to shape the leaders of tomorrow
+            through commitment and excellence.
+          </p>
+          <a href="Front-end/about.html" class="btn-card"
+            >Learn More <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
 
-        <div class="card reveal">
-            <div class="card-img-wrap">
-                <img src="Assets/academics.jpeg" alt="Academics">
-                <div class="card-img-overlay"></div>
-            </div>
-            <div class="card-body">
-                <span class="card-tag">Curriculum</span>
-                <h2>Academics</h2>
-                <p>Our carefully crafted curriculum develops critical thinking, creativity, and practical skills — preparing students for the challenges of the modern world.</p>
-                <a href="Front-end/academics.html" class="btn-card">Explore <i class="fas fa-arrow-right"></i></a>
-            </div>
+      <div class="card reveal">
+        <div class="card-img-wrap">
+          <img src="Assets/academics.jpeg" alt="Academics" />
+          <div class="card-img-overlay"></div>
         </div>
+        <div class="card-body">
+          <span class="card-tag">Curriculum</span>
+          <h2>Academics</h2>
+          <p>
+            Our carefully crafted curriculum develops critical thinking,
+            creativity, and practical skills — preparing students for the
+            challenges of the modern world.
+          </p>
+          <a href="Front-end/academics.html" class="btn-card"
+            >Explore <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
     </section>
 
     <!-- MOTTO STRIP -->
     <div class="motto-strip">
-        <span>Forward Ever</span>
-        <span class="dot-divider">◆</span>
-        <span>Backward Never</span>
-        <span class="dot-divider">◆</span>
-        <span>Forward Ever</span>
-        <span class="dot-divider">◆</span>
-        <span>Backward Never</span>
-        <span class="dot-divider">◆</span>
-        <span>Forward Ever</span>
-        <span class="dot-divider">◆</span>
-        <span>Backward Never</span>
+      <span>Forward Ever</span>
+      <span class="dot-divider">◆</span>
+      <span>Backward Never</span>
+      <span class="dot-divider">◆</span>
+      <span>Forward Ever</span>
+      <span class="dot-divider">◆</span>
+      <span>Backward Never</span>
+      <span class="dot-divider">◆</span>
+      <span>Forward Ever</span>
+      <span class="dot-divider">◆</span>
+      <span>Backward Never</span>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-brand">
-            <img src="Assets/STERKSPRUIT JSS.jpg" alt="Logo">
-            <p>Sterkspruit Junior Secondary School — shaping futures since the early 1990s.</p>
+      <div class="footer-brand">
+        <img src="Assets/STERKSPRUIT JSS.jpg" alt="Logo" />
+        <p>
+          Sterkspruit Junior Secondary School — shaping futures since the early
+          1990s.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-phone"></i> 061 324 2568</p>
+        <p><i class="fas fa-mobile-alt"></i> 085 256 8626</p>
+        <p><i class="fas fa-fax"></i> 072 681 2734</p>
+      </div>
+      <div class="footer-col">
+        <h3>Address</h3>
+        <p>
+          <i class="fas fa-map-marker-alt"></i> 1 Eskom Road,<br />Sterkspruit,
+          9762
+        </p>
+        <p><i class="fas fa-envelope"></i> P.O Box 1,<br />Sterkspruit, 9762</p>
+      </div>
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
         </div>
-        <div class="footer-col">
-            <h3>Contact Us</h3>
-            <p><i class="fas fa-phone"></i> 061 324 2568</p>
-            <p><i class="fas fa-mobile-alt"></i> 085 256 8626</p>
-            <p><i class="fas fa-fax"></i> 072 681 2734</p>
-        </div>
-        <div class="footer-col">
-            <h3>Address</h3>
-            <p><i class="fas fa-map-marker-alt"></i> 1 Eskom Road,<br>Sterkspruit, 9762</p>
-            <p><i class="fas fa-envelope"></i> P.O Box 1,<br>Sterkspruit, 9762</p>
-        </div>
-        <div class="footer-col">
-            <h3>Connect</h3>
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Sterkspruit Junior Secondary School. All rights reserved.</p>
-        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Sterkspruit Junior Secondary School. All rights reserved.
+        </p>
+      </div>
     </footer>
 
-    <script src="index.js"></script>
-</body>
+    <script src="./Front-end/index.js"></script>
+  </body>
 </html>
