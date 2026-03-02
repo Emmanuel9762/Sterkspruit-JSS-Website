@@ -1,0 +1,3422 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sterkspruit JSS — Design System Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* ════════════════════════════════════════════
+   DESIGN BOARD — STERKSPRUIT JSS
+   A living style guide for AI & human devs
+════════════════════════════════════════════ */
+
+      :root {
+        /* ── Primary Palette ── */
+        --green: #2ecc71;
+        --green-dark: #27ae60;
+        --green-deep: #1a7a44;
+        --green-deeper: #1a2e22;
+        --green-light: #a8edca;
+        --green-bg: #f0faf5;
+
+        /* ── Neutrals ── */
+        --white: #ffffff;
+        --off-white: #f8faf9;
+        --grey-100: #f0f4f1;
+        --grey-200: #dde8e2;
+        --grey-400: #9ab5a3;
+        --grey-600: #5a7564;
+        --text-dark: #1a2e22;
+        --text-mid: #3d5a48;
+        --text-light: #6b8f7a;
+
+        /* ── Accents ── */
+        --accent-gold: #f0c040;
+        --accent-red: #e74c3c;
+        --accent-blue: #3498db;
+
+        /* ── Shadows ── */
+        --shadow-sm: 0 2px 12px rgba(46, 204, 113, 0.1);
+        --shadow-md: 0 8px 30px rgba(26, 42, 34, 0.12);
+        --shadow-lg: 0 20px 60px rgba(26, 42, 34, 0.18);
+
+        /* ── Transitions ── */
+        --ease: cubic-bezier(0.4, 0, 0.2, 1);
+        --transition: 0.35s var(--ease);
+
+        /* ── Fonts ── */
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-body: "Source Sans 3", "Helvetica Neue", sans-serif;
+        --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+        /* ── Spacing Scale ── */
+        --space-xs: 4px;
+        --space-sm: 8px;
+        --space-md: 16px;
+        --space-lg: 24px;
+        --space-xl: 40px;
+        --space-2xl: 64px;
+
+        /* ── Radii ── */
+        --radius-sm: 6px;
+        --radius-md: 12px;
+        --radius-lg: 20px;
+        --radius-pill: 999px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--grey-100);
+        color: var(--text-dark);
+        line-height: 1.6;
+      }
+
+      /* ── SCROLLBAR ── */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--grey-100);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--green);
+        border-radius: 4px;
+      }
+
+      /* ── LAYOUT ── */
+      .board {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        min-height: 100vh;
+      }
+
+      /* ════════════════════════════════════════════
+   SIDEBAR NAV
+════════════════════════════════════════════ */
+      .sidenav {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        background: var(--green-deeper);
+        padding: 32px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        z-index: 100;
+      }
+
+      .sidenav-logo {
+        padding: 0 24px 28px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 12px;
+      }
+
+      .sidenav-logo .school-name {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: var(--green-light);
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .sidenav-logo .doc-title {
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+        margin-top: 4px;
+      }
+
+      .sidenav-section {
+        padding: 8px 24px 4px;
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.3);
+        font-weight: 700;
+        margin-top: 8px;
+      }
+
+      .sidenav a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 24px;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-left: 3px solid transparent;
+        transition: all var(--transition);
+      }
+
+      .sidenav a i {
+        width: 16px;
+        text-align: center;
+        opacity: 0.7;
+        font-size: 0.85rem;
+      }
+
+      .sidenav a:hover,
+      .sidenav a.active {
+        color: white;
+        background: rgba(255, 255, 255, 0.06);
+        border-left-color: var(--green);
+      }
+
+      .sidenav-footer {
+        margin-top: auto;
+        padding: 16px 24px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.25);
+        line-height: 1.6;
+      }
+
+      /* ════════════════════════════════════════════
+   MAIN CONTENT
+════════════════════════════════════════════ */
+      .main {
+        padding: 48px 56px;
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        max-width: 1100px;
+      }
+
+      /* ── SECTION ── */
+      .ds-section {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .ds-section-header {
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--grey-200);
+      }
+
+      .section-num {
+        font-family: var(--font-display);
+        font-size: 3.5rem;
+        font-weight: 900;
+        color: var(--green-light);
+        line-height: 1;
+        opacity: 0.4;
+      }
+
+      .section-meta {
+      }
+      .section-tag {
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--green-dark);
+        font-weight: 700;
+      }
+
+      .section-title {
+        font-family: var(--font-display);
+        font-size: 1.9rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        line-height: 1.2;
+      }
+
+      /* ── HERO BAND ── */
+      .hero-band {
+        background: linear-gradient(
+          135deg,
+          var(--green-deeper) 0%,
+          var(--green-deep) 60%,
+          var(--green-dark) 100%
+        );
+        border-radius: var(--radius-lg);
+        padding: 56px 64px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-band::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: rgba(46, 204, 113, 0.08);
+      }
+
+      .hero-band::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: 40%;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba(46, 204, 113, 0.05);
+      }
+
+      .hero-band .eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--green-light);
+        font-weight: 700;
+      }
+
+      .hero-band h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 900;
+        color: white;
+        line-height: 1.15;
+        max-width: 600px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-band .sub {
+        color: rgba(255, 255, 255, 0.65);
+        font-weight: 300;
+        font-size: 1.05rem;
+        max-width: 500px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-band .motto-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding: 8px 18px;
+        border-radius: var(--radius-pill);
+        width: fit-content;
+        margin-top: 8px;
+        backdrop-filter: blur(6px);
+      }
+
+      /* ════════════════════════════════════════════
+   1. COLOR PALETTE
+════════════════════════════════════════════ */
+      .palette-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 16px;
+      }
+
+      .swatch {
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        cursor: default;
+        transition:
+          transform var(--transition),
+          box-shadow var(--transition);
+      }
+
+      .swatch:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .swatch-color {
+        height: 80px;
+      }
+
+      .swatch-info {
+        padding: 10px 12px;
+        background: white;
+      }
+
+      .swatch-name {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 2px;
+      }
+
+      .swatch-hex {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-light);
+      }
+
+      .swatch-role {
+        font-size: 0.68rem;
+        color: var(--grey-400);
+        margin-top: 2px;
+      }
+
+      /* ════════════════════════════════════════════
+   2. TYPOGRAPHY
+════════════════════════════════════════════ */
+      .type-samples {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .type-row {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+        align-items: center;
+        padding: 20px;
+        background: white;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .type-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .type-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--green-dark);
+      }
+      .type-spec {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+
+      .t-hero {
+        font-family: var(--font-display);
+        font-size: 2.8rem;
+        font-weight: 900;
+        color: var(--text-dark);
+        line-height: 1.1;
+      }
+      .t-h1 {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+      .t-h2 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+      .t-h3 {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+      .t-body {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--text-mid);
+        line-height: 1.7;
+      }
+      .t-caption {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text-light);
+        letter-spacing: 0.05em;
+      }
+      .t-tag {
+        font-family: var(--font-body);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--green-dark);
+      }
+      .t-mono {
+        font-family: var(--font-mono);
+        font-size: 0.88rem;
+        color: var(--text-mid);
+      }
+
+      /* ════════════════════════════════════════════
+   3. COMPONENTS
+════════════════════════════════════════════ */
+      .component-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .component-block {
+        background: white;
+        border-radius: var(--radius-md);
+        padding: 28px;
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .component-block.full {
+        grid-column: 1 / -1;
+      }
+
+      .comp-label {
+        font-size: 0.68rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--grey-400);
+        font-weight: 700;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--grey-200);
+      }
+
+      /* Buttons */
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 0.88rem;
+        letter-spacing: 0.04em;
+        padding: 11px 22px;
+        border-radius: var(--radius-pill);
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all var(--transition);
+      }
+
+      .btn-primary {
+        background: var(--green);
+        color: white;
+        box-shadow: 0 4px 16px rgba(46, 204, 113, 0.4);
+      }
+      .btn-primary:hover {
+        background: var(--green-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(46, 204, 113, 0.5);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--green-dark);
+        border: 2px solid var(--green);
+      }
+      .btn-secondary:hover {
+        background: var(--green-bg);
+        transform: translateY(-2px);
+      }
+
+      .btn-dark {
+        background: var(--green-deeper);
+        color: white;
+      }
+      .btn-dark:hover {
+        background: var(--green-deep);
+        transform: translateY(-2px);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--text-mid);
+        border: 1.5px solid var(--grey-200);
+      }
+      .btn-ghost:hover {
+        border-color: var(--green);
+        color: var(--green-dark);
+      }
+
+      .btn-sm {
+        padding: 7px 16px;
+        font-size: 0.78rem;
+      }
+      .btn-icon {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+      }
+
+      /* Tags & Badges */
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 5px 12px;
+        border-radius: var(--radius-pill);
+      }
+
+      .tag-green {
+        background: var(--green-bg);
+        color: var(--green-deep);
+        border: 1px solid var(--green-light);
+      }
+      .tag-dark {
+        background: var(--green-deeper);
+        color: var(--green-light);
+      }
+      .tag-white {
+        background: white;
+        color: var(--text-mid);
+        border: 1px solid var(--grey-200);
+      }
+      .tag-accent {
+        background: rgba(240, 192, 64, 0.15);
+        color: #a07800;
+        border: 1px solid rgba(240, 192, 64, 0.4);
+      }
+
+      /* Cards */
+      .demo-card {
+        background: white;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        transition:
+          transform var(--transition),
+          box-shadow var(--transition);
+        cursor: default;
+      }
+      .demo-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .demo-card-img {
+        height: 140px;
+        background: linear-gradient(135deg, var(--green-deep), var(--green));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .demo-card-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+      }
+
+      .demo-card-body {
+        padding: 20px;
+      }
+      .demo-card-body .tag {
+        margin-bottom: 8px;
+      }
+      .demo-card-body h3 {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 6px;
+      }
+      .demo-card-body p {
+        font-size: 0.88rem;
+        color: var(--text-light);
+        line-height: 1.6;
+        margin-bottom: 14px;
+      }
+      .demo-card-body a {
+        color: var(--green-dark);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 1px;
+        transition: all var(--transition);
+      }
+      .demo-card-body a:hover {
+        border-bottom-color: var(--green);
+        gap: 10px;
+      }
+
+      /* Form elements */
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .form-label {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+      .form-input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid var(--grey-200);
+        border-radius: var(--radius-sm);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: var(--text-dark);
+        background: var(--off-white);
+        transition:
+          border-color var(--transition),
+          box-shadow var(--transition);
+        outline: none;
+      }
+      .form-input:focus {
+        border-color: var(--green);
+        box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15);
+        background: white;
+      }
+      .form-input::placeholder {
+        color: var(--grey-400);
+      }
+
+      .form-hint {
+        font-size: 0.75rem;
+        color: var(--text-light);
+      }
+
+      /* Alerts */
+      .alert {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 18px;
+        border-radius: var(--radius-sm);
+        font-size: 0.88rem;
+        line-height: 1.55;
+      }
+      .alert i {
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+      .alert-success {
+        background: var(--green-bg);
+        color: var(--green-deep);
+        border: 1px solid var(--green-light);
+      }
+      .alert-warn {
+        background: #fffbeb;
+        color: #8a6200;
+        border: 1px solid rgba(240, 192, 64, 0.4);
+      }
+      .alert-error {
+        background: #fef2f2;
+        color: #991b1b;
+        border: 1px solid rgba(231, 76, 60, 0.3);
+      }
+
+      /* Nav demo */
+      .nav-demo {
+        background: var(--green);
+        border-radius: var(--radius-md);
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-demo-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .nav-demo-logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+      }
+      .nav-demo-name {
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: white;
+        line-height: 1.2;
+      }
+      .nav-demo-links {
+        display: flex;
+        gap: 4px;
+      }
+      .nav-demo-links a {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.82rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 7px 14px;
+        border-radius: var(--radius-pill);
+        transition: background-color var(--transition);
+      }
+      .nav-demo-links a:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Footer demo */
+      .footer-demo {
+        background: var(--green-deeper);
+        border-radius: var(--radius-md);
+        padding: 32px;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 24px;
+      }
+      .footer-demo-col h4 {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--green);
+        display: inline-block;
+      }
+      .footer-demo-col p {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.8;
+      }
+      .footer-demo-col .tag-line {
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 0.75rem;
+        line-height: 1.7;
+      }
+      .footer-icons {
+        display: flex;
+        gap: 8px;
+        margin-top: 4px;
+      }
+      .footer-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.78rem;
+        transition: all var(--transition);
+        cursor: pointer;
+      }
+      .footer-icon:hover {
+        background: var(--green);
+        color: white;
+        border-color: var(--green);
+      }
+
+      /* Sidebar demo */
+      .sidebar-demo {
+        background: var(--green-deep);
+        border-radius: var(--radius-md);
+        padding: 20px 0;
+        width: 200px;
+      }
+      .sidebar-demo a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 20px;
+        color: rgba(255, 255, 255, 0.65);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border-left: 3px solid transparent;
+        transition: all var(--transition);
+      }
+      .sidebar-demo a.active,
+      .sidebar-demo a:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-left-color: var(--green);
+        color: white;
+      }
+      .sidebar-demo a i {
+        width: 16px;
+        text-align: center;
+        font-size: 0.8rem;
+      }
+
+      /* Carousel dot demo */
+      .dot-demo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .dot-d {
+        height: 8px;
+        background: var(--grey-200);
+        border-radius: var(--radius-pill);
+        transition: all var(--transition);
+        cursor: pointer;
+      }
+      .dot-d.active {
+        width: 24px;
+        background: var(--green);
+      }
+      .dot-d:not(.active) {
+        width: 8px;
+      }
+
+      /* ════════════════════════════════════════════
+   4. ICONS
+════════════════════════════════════════════ */
+      .icon-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 12px;
+      }
+
+      .icon-cell {
+        background: white;
+        border-radius: var(--radius-md);
+        padding: 18px 12px 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        box-shadow: var(--shadow-sm);
+        transition:
+          transform var(--transition),
+          box-shadow var(--transition);
+        cursor: default;
+      }
+
+      .icon-cell:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+      .icon-cell i {
+        font-size: 1.4rem;
+        color: var(--green-dark);
+      }
+      .icon-cell:hover i {
+        color: var(--green);
+      }
+      .icon-cell span {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: var(--text-light);
+        text-align: center;
+        word-break: break-all;
+      }
+
+      /* ════════════════════════════════════════════
+   5. ANIMATIONS
+════════════════════════════════════════════ */
+      .anim-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .anim-card {
+        background: white;
+        border-radius: var(--radius-md);
+        padding: 28px 20px 20px;
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .anim-demo-box {
+        width: 56px;
+        height: 56px;
+        background: var(--green-bg);
+        border: 2px solid var(--green-light);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--green-dark);
+        font-size: 1.3rem;
+        cursor: pointer;
+      }
+
+      .anim-card .anim-name {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+      .anim-card .anim-spec {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* Demo animations */
+      .anim-lift:hover .anim-demo-box {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-md);
+        transition: all 0.35s var(--ease);
+      }
+      .anim-scale:hover .anim-demo-box {
+        transform: scale(1.12);
+        transition: all 0.35s var(--ease);
+      }
+      .anim-pulse .anim-demo-box {
+        animation: pulseBorder 2s infinite;
+      }
+      .anim-spin:hover .anim-demo-box {
+        transform: rotate(360deg);
+        transition: transform 0.6s var(--ease);
+      }
+      .anim-bg:hover .anim-demo-box {
+        background: var(--green);
+        color: white;
+        border-color: var(--green);
+        transition: all 0.35s var(--ease);
+      }
+      .anim-fade:hover .anim-demo-box {
+        opacity: 0.3;
+        transition: opacity 0.35s ease;
+      }
+
+      @keyframes pulseBorder {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0px rgba(46, 204, 113, 0);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(46, 204, 113, 0.25);
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scrollTicker {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ════════════════════════════════════════════
+   6. SPACING & LAYOUT
+════════════════════════════════════════════ */
+      .spacing-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .spacing-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .spacing-bar {
+        background: var(--green);
+        border-radius: 3px;
+        height: 24px;
+      }
+      .spacing-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .spacing-name {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+      .spacing-val {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-light);
+      }
+
+      .radius-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: flex-end;
+      }
+      .radius-cell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .radius-box {
+        width: 60px;
+        height: 60px;
+        background: var(--green-bg);
+        border: 2px solid var(--green-light);
+      }
+      .radius-label {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--text-light);
+      }
+
+      /* ════════════════════════════════════════════
+   7. PAGE BLUEPRINTS
+════════════════════════════════════════════ */
+      .blueprint-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .blueprint {
+        background: white;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+      }
+
+      .blueprint-header {
+        background: var(--green);
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .blueprint-header h4 {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: white;
+      }
+      .bp-tag {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 3px 10px;
+        border-radius: var(--radius-pill);
+      }
+
+      .blueprint-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .bp-zone {
+        border-radius: var(--radius-sm);
+        padding: 10px 14px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border: 1.5px dashed;
+      }
+
+      .bp-zone.nav {
+        background: rgba(46, 204, 113, 0.08);
+        border-color: var(--green-light);
+        color: var(--green-deep);
+        height: 36px;
+      }
+      .bp-zone.hero {
+        background: rgba(26, 42, 34, 0.06);
+        border-color: var(--grey-200);
+        color: var(--text-mid);
+        height: 72px;
+      }
+      .bp-zone.content {
+        background: var(--grey-100);
+        border-color: var(--grey-200);
+        color: var(--text-light);
+        height: 52px;
+      }
+      .bp-zone.footer {
+        background: rgba(26, 42, 34, 0.08);
+        border-color: var(--grey-200);
+        color: var(--text-mid);
+        height: 44px;
+      }
+
+      .bp-zone i {
+        opacity: 0.6;
+        font-size: 0.75rem;
+      }
+
+      /* ════════════════════════════════════════════
+   8. RULES & DO/DON'T
+════════════════════════════════════════════ */
+      .rules-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .rule-card {
+        border-radius: var(--radius-md);
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .rule-card.do {
+        background: var(--green-bg);
+        border: 1.5px solid var(--green-light);
+      }
+      .rule-card.dont {
+        background: #fef2f2;
+        border: 1.5px solid rgba(231, 76, 60, 0.3);
+      }
+
+      .rule-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 0.88rem;
+      }
+      .rule-card.do .rule-header {
+        color: var(--green-deep);
+      }
+      .rule-card.dont .rule-header {
+        color: #991b1b;
+      }
+
+      .rule-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .rule-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.83rem;
+        color: var(--text-mid);
+        line-height: 1.5;
+      }
+      .rule-item i {
+        margin-top: 3px;
+        flex-shrink: 0;
+        font-size: 0.75rem;
+      }
+      .rule-card.do .rule-item i {
+        color: var(--green);
+      }
+      .rule-card.dont .rule-item i {
+        color: var(--accent-red);
+      }
+
+      /* ════════════════════════════════════════════
+   9. CSS VARIABLES REFERENCE
+════════════════════════════════════════════ */
+      .code-block {
+        background: var(--green-deeper);
+        border-radius: var(--radius-md);
+        padding: 28px 32px;
+        overflow-x: auto;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        line-height: 2;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .code-block .comment {
+        color: rgba(168, 237, 202, 0.5);
+      }
+      .code-block .prop {
+        color: var(--green-light);
+      }
+      .code-block .val {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .code-block .selector {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      /* ════════════════════════════════════════════
+   10. SCROLLING TICKER (like motto strip)
+════════════════════════════════════════════ */
+      .ticker-demo {
+        background: var(--green);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        padding: 16px 0;
+      }
+
+      .ticker-inner {
+        display: flex;
+        gap: 32px;
+        white-space: nowrap;
+        animation: scrollTicker 16s linear infinite;
+        width: max-content;
+      }
+
+      .ticker-inner span {
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: white;
+      }
+
+      .ticker-inner .divider {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.6rem;
+      }
+
+      /* ════════════════════════════════════════════
+   UTILITY
+════════════════════════════════════════════ */
+      .flex {
+        display: flex;
+      }
+      .gap-sm {
+        gap: 12px;
+      }
+      .wrap {
+        flex-wrap: wrap;
+      }
+      .items-start {
+        align-items: flex-start;
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-light);
+      }
+      .pill-count {
+        background: var(--green-bg);
+        color: var(--green-dark);
+        font-size: 0.68rem;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: var(--radius-pill);
+        border: 1px solid var(--green-light);
+      }
+
+      /* ── Page load animation ── */
+      .main > * {
+        animation: slideIn 0.6s var(--ease) both;
+      }
+
+      .main > *:nth-child(2) {
+        animation-delay: 0.08s;
+      }
+      .main > *:nth-child(3) {
+        animation-delay: 0.14s;
+      }
+      .main > *:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      .main > *:nth-child(5) {
+        animation-delay: 0.26s;
+      }
+      .main > *:nth-child(6) {
+        animation-delay: 0.32s;
+      }
+      .main > *:nth-child(7) {
+        animation-delay: 0.38s;
+      }
+      .main > *:nth-child(8) {
+        animation-delay: 0.44s;
+      }
+      .main > *:nth-child(9) {
+        animation-delay: 0.5s;
+      }
+      .main > *:nth-child(10) {
+        animation-delay: 0.56s;
+      }
+
+      /* Copy toast */
+      .toast {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        background: var(--green-deeper);
+        color: white;
+        font-size: 0.82rem;
+        font-weight: 600;
+        padding: 12px 20px;
+        border-radius: var(--radius-pill);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(60px);
+        opacity: 0;
+        transition: all 0.35s var(--ease);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .toast.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="board">
+      <!-- ══ SIDEBAR NAV ══ -->
+      <nav class="sidenav">
+        <div class="sidenav-logo">
+          <div class="school-name">Sterkspruit JSS</div>
+          <div class="doc-title">Design System v1.0</div>
+        </div>
+
+        <span class="sidenav-section">Foundation</span>
+        <a href="#colors" class="active"
+          ><i class="fas fa-palette"></i> Color Palette</a
+        >
+        <a href="#typography"><i class="fas fa-font"></i> Typography</a>
+        <a href="#spacing">
+          <i class="fas fa-ruler-combined"></i> Spacing & Layout</a
+        >
+        <a href="#variables"><i class="fas fa-code"></i> CSS Variables</a>
+
+        <span class="sidenav-section">Components</span>
+        <a href="#buttons">
+          <i class="fas fa-hand-pointer"></i> Buttons & Tags</a
+        >
+        <a href="#cards"> <i class="fas fa-square"></i> Cards</a>
+        <a href="#forms">
+          <i class="fas fa-pen-to-square"></i> Forms & Alerts</a
+        >
+        <a href="#navigation"><i class="fas fa-bars"></i> Navigation</a>
+        <a href="#icons"> <i class="fas fa-icons"></i> Icon Library</a>
+
+        <span class="sidenav-section">Motion & Pages</span>
+        <a href="#animations"
+          ><i class="fas fa-wand-magic-sparkles"></i> Animations</a
+        >
+        <a href="#blueprints"><i class="fas fa-sitemap"></i> Page Blueprints</a>
+        <a href="#rules"> <i class="fas fa-circle-check"></i> Do's & Don'ts</a>
+
+        <div class="sidenav-footer">
+          Sterkspruit Junior Secondary School<br />
+          Design System Board · 2024<br />
+          "Forward Ever, Backward Never"
+        </div>
+      </nav>
+
+      <!-- ══ MAIN CONTENT ══ -->
+      <main class="main">
+        <!-- HERO BAND -->
+        <div class="hero-band">
+          <div class="eyebrow">Design System Documentation</div>
+          <h1>Sterkspruit JSS<br />Design Board</h1>
+          <p class="sub">
+            A complete visual reference for building any page of the Sterkspruit
+            JSS website. Share this with any AI or developer to maintain a
+            consistent, polished aesthetic across all pages.
+          </p>
+          <div class="motto-badge">
+            <i class="fas fa-graduation-cap"></i>
+            Forward Ever, Backward Never
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════
+         1. COLOR PALETTE
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="colors">
+          <div class="ds-section-header">
+            <div class="section-num">01</div>
+            <div class="section-meta">
+              <div class="section-tag">Foundation</div>
+              <h2 class="section-title">Color Palette</h2>
+            </div>
+          </div>
+
+          <p
+            style="
+              font-size: 0.92rem;
+              color: var(--text-mid);
+              max-width: 680px;
+              line-height: 1.7;
+            "
+          >
+            Green is the primary identity colour — never swap it for another
+            hue. Use the deep greens for backgrounds and text on dark surfaces,
+            the light greens for accents and tags, and keep neutrals for
+            readable body text. Click any swatch to copy its hex.
+          </p>
+
+          <div
+            style="
+              font-size: 0.78rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--text-light);
+              margin-top: 4px;
+            "
+          >
+            Primary Greens
+          </div>
+          <div class="palette-grid">
+            <div class="swatch" onclick="copy('#2ecc71')">
+              <div class="swatch-color" style="background: #2ecc71"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Green</div>
+                <div class="swatch-hex">#2ecc71</div>
+                <div class="swatch-role">Primary / CTA</div>
+              </div>
+            </div>
+            <div class="swatch" onclick="copy('#27ae60')">
+              <div class="swatch-color" style="background: #27ae60"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Green Dark</div>
+                <div class="swatch-hex">#27ae60</div>
+                <div class="swatch-role">Hover states</div>
+              </div>
+            </div>
+            <div class="swatch" onclick="copy('#1a7a44')">
+              <div class="swatch-color" style="background: #1a7a44"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Green Deep</div>
+                <div class="swatch-hex">#1a7a44</div>
+                <div class="swatch-role">Sidebar / panels</div>
+              </div>
+            </div>
+            <div class="swatch" onclick="copy('#1a2e22')">
+              <div class="swatch-color" style="background: #1a2e22"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Green Deeper</div>
+                <div class="swatch-hex">#1a2e22</div>
+                <div class="swatch-role">Footer / dark bg</div>
+              </div>
+            </div>
+            <div class="swatch" onclick="copy('#a8edca')">
+              <div class="swatch-color" style="background: #a8edca"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Green Light</div>
+                <div class="swatch-hex">#a8edca</div>
+                <div class="swatch-role">Tags / accents</div>
+              </div>
+            </div>
+            <div class="swatch" onclick="copy('#f0faf5')">
+              <div
+                class="swatch-color"
+                style="background: #f0faf5; border: 1px solid #dde8e2"
+              ></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Green BG</div>
+                <div class="swatch-hex">#f0faf5</div>
+                <div class="swatch-role">Card bg / tints</div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              font-size: 0.78rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--text-light);
+              margin-top: 8px;
+            "
+          >
+            Neutrals & Text
+          </div>
+          <div class="palette-grid">
+            <div class="swatch" onclick="copy('#1a2e22')">
+              <div class="swatch-color" style="background: #1a2e22"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Text Dark</div>
+                <div class="swatch-hex">#1a2e22</div>
+                <div class="swatch-role">Headings</div>
+              </div>
+            </div>
+            <div class="swatch" onclick="copy('#3d5a48')">
+              <div class="swatch-color" style="background: #3d5a48"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Text Mid</div>
+                <div class="swatch-hex">#3d5a48</div>
+                <div class="swatch-role">Body text</div>
+              </div>
+            </div>
+            <div class="swatch" onclick="copy('#6b8f7a')">
+              <div class="swatch-color" style="background: #6b8f7a"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Text Light</div>
+                <div class="swatch-hex">#6b8f7a</div>
+                <div class="swatch-role">Captions</div>
+              </div>
+            </div>
+            <div class="swatch" onclick="copy('#f0f4f1')">
+              <div
+                class="swatch-color"
+                style="background: #f0f4f1; border: 1px solid #dde8e2"
+              ></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Grey 100</div>
+                <div class="swatch-hex">#f0f4f1</div>
+                <div class="swatch-role">Page bg</div>
+              </div>
+            </div>
+            <div class="swatch" onclick="copy('#dde8e2')">
+              <div class="swatch-color" style="background: #dde8e2"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Grey 200</div>
+                <div class="swatch-hex">#dde8e2</div>
+                <div class="swatch-role">Borders</div>
+              </div>
+            </div>
+            <div class="swatch" onclick="copy('#ffffff')">
+              <div
+                class="swatch-color"
+                style="background: #fff; border: 1px solid #dde8e2"
+              ></div>
+              <div class="swatch-info">
+                <div class="swatch-name">White</div>
+                <div class="swatch-hex">#ffffff</div>
+                <div class="swatch-role">Card surface</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         2. TYPOGRAPHY
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="typography">
+          <div class="ds-section-header">
+            <div class="section-num">02</div>
+            <div class="section-meta">
+              <div class="section-tag">Foundation</div>
+              <h2 class="section-title">Typography</h2>
+            </div>
+          </div>
+
+          <div
+            style="
+              background: white;
+              border-radius: var(--radius-md);
+              padding: 20px 24px;
+              box-shadow: var(--shadow-sm);
+              display: flex;
+              flex-wrap: wrap;
+              gap: 24px;
+            "
+          >
+            <div>
+              <div class="mono" style="margin-bottom: 6px">
+                Display / Headings
+              </div>
+              <div
+                style="
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  font-size: 1.5rem;
+                  font-weight: 700;
+                  color: var(--text-dark);
+                "
+              >
+                Playfair Display
+              </div>
+              <div class="mono">Google Fonts · 700, 900</div>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom: 6px">Body / UI</div>
+              <div
+                style="
+                  font-family: &quot;Source Sans 3&quot;, sans-serif;
+                  font-size: 1.5rem;
+                  font-weight: 600;
+                  color: var(--text-dark);
+                "
+              >
+                Source Sans 3
+              </div>
+              <div class="mono">Google Fonts · 300, 400, 600, 700</div>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom: 6px">Code / Specs</div>
+              <div
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 1.2rem;
+                  font-weight: 600;
+                  color: var(--text-dark);
+                "
+              >
+                JetBrains Mono
+              </div>
+              <div class="mono">Google Fonts · 400, 600</div>
+            </div>
+          </div>
+
+          <div
+            style="
+              background: white;
+              border-radius: var(--radius-md);
+              padding: 16px 24px;
+              box-shadow: var(--shadow-sm);
+            "
+          >
+            <div class="comp-label">Google Fonts Import</div>
+            <div
+              class="code-block"
+              style="
+                border-radius: var(--radius-sm);
+                margin-top: 12px;
+                padding: 16px 20px;
+              "
+            >
+              <span class="comment">/* Paste inside &lt;head&gt; */</span><br />
+              &lt;link rel="preconnect"
+              href="https://fonts.googleapis.com"&gt;<br />
+              &lt;link href="https://fonts.googleapis.com/css2?<br />
+              &nbsp;&nbsp;family=Playfair+Display:wght@700;900<br />
+              &nbsp;&nbsp;&family=Source+Sans+3:wght@300;400;600;700<br />
+              &nbsp;&nbsp;&family=JetBrains+Mono:wght@400;600<br />
+              &nbsp;&nbsp;&display=swap" rel="stylesheet"&gt;
+            </div>
+          </div>
+
+          <div class="type-samples">
+            <div class="type-row">
+              <div class="type-meta">
+                <div class="type-label">Hero / Display</div>
+                <div class="type-spec">
+                  Playfair Display 900<br />clamp(2rem, 4vw, 3.2rem)<br />line-height:
+                  1.1
+                </div>
+              </div>
+              <div class="t-hero">Sterkspruit JSS</div>
+            </div>
+            <div class="type-row">
+              <div class="type-meta">
+                <div class="type-label">Heading 1</div>
+                <div class="type-spec">
+                  Playfair Display 700<br />2rem · lh: 1.2
+                </div>
+              </div>
+              <div class="t-h1">Welcome to Our School</div>
+            </div>
+            <div class="type-row">
+              <div class="type-meta">
+                <div class="type-label">Heading 2</div>
+                <div class="type-spec">
+                  Playfair Display 700<br />1.5rem · lh: 1.25
+                </div>
+              </div>
+              <div class="t-h2">About Our Academics</div>
+            </div>
+            <div class="type-row">
+              <div class="type-meta">
+                <div class="type-label">Heading 3</div>
+                <div class="type-spec">Playfair Display 700<br />1.2rem</div>
+              </div>
+              <div class="t-h3">Application Requirements</div>
+            </div>
+            <div class="type-row">
+              <div class="type-meta">
+                <div class="type-label">Body</div>
+                <div class="type-spec">
+                  Source Sans 3 400<br />1rem · lh: 1.7
+                </div>
+              </div>
+              <div class="t-body">
+                Our carefully crafted curriculum develops critical thinking,
+                creativity, and practical skills — preparing students for the
+                challenges of the modern world.
+              </div>
+            </div>
+            <div class="type-row">
+              <div class="type-meta">
+                <div class="type-label">Caption / Meta</div>
+                <div class="type-spec">
+                  Source Sans 3 600<br />0.8rem · ls: 0.05em
+                </div>
+              </div>
+              <div class="t-caption">Updated January 2024 · 3 min read</div>
+            </div>
+            <div class="type-row">
+              <div class="type-meta">
+                <div class="type-label">Tag / Label</div>
+                <div class="type-spec">
+                  Source Sans 3 700<br />0.7rem · ls: 0.18em<br />UPPERCASE
+                </div>
+              </div>
+              <div class="t-tag">Our Curriculum</div>
+            </div>
+            <div class="type-row">
+              <div class="type-meta">
+                <div class="type-label">Mono / Code</div>
+                <div class="type-spec">JetBrains Mono 400<br />0.88rem</div>
+              </div>
+              <div class="t-mono">font-family: var(--font-display);</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         3. BUTTONS & TAGS
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="buttons">
+          <div class="ds-section-header">
+            <div class="section-num">03</div>
+            <div class="section-meta">
+              <div class="section-tag">Components</div>
+              <h2 class="section-title">Buttons & Tags</h2>
+            </div>
+          </div>
+
+          <div class="component-grid">
+            <div class="component-block full">
+              <div class="comp-label">Buttons — hover to preview</div>
+              <div class="btn-row">
+                <button class="btn btn-primary">
+                  <i class="fas fa-arrow-right"></i> Primary CTA
+                </button>
+                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-dark">
+                  <i class="fas fa-graduation-cap"></i> Dark
+                </button>
+                <button class="btn btn-ghost">Ghost</button>
+                <button class="btn btn-primary btn-sm">Small CTA</button>
+                <button class="btn btn-primary btn-icon">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn btn-ghost btn-icon">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+              <div
+                style="
+                  font-size: 0.78rem;
+                  color: var(--text-light);
+                  line-height: 1.7;
+                  margin-top: 4px;
+                "
+              >
+                <strong>Rules:</strong> All buttons use border-radius: 999px
+                (pill). Primary always has green background + box-shadow. Hover
+                lifts with translateY(-2px). Icon buttons are 40×40px circles.
+                Font: Source Sans 3 700, 0.88rem, letter-spacing: 0.04em.
+              </div>
+            </div>
+
+            <div class="component-block">
+              <div class="comp-label">Tags & Badges</div>
+              <div class="tag-row">
+                <span class="tag tag-green"
+                  ><i class="fas fa-circle" style="font-size: 0.45rem"></i>
+                  Curriculum</span
+                >
+                <span class="tag tag-dark">Academics</span>
+                <span class="tag tag-white">Grade 8</span>
+                <span class="tag tag-accent"
+                  ><i class="fas fa-star" style="font-size: 0.6rem"></i>
+                  Featured</span
+                >
+              </div>
+            </div>
+
+            <div class="component-block">
+              <div class="comp-label">Carousel Dots</div>
+              <div style="display: flex; flex-direction: column; gap: 12px">
+                <div class="dot-demo">
+                  <div class="dot-d active"></div>
+                  <div class="dot-d"></div>
+                  <div class="dot-d"></div>
+                  <div class="dot-d"></div>
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text-light)">
+                  Active dot: width 24px pill · Inactive: 8px circle · Color:
+                  --green
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         4. CARDS
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="cards">
+          <div class="ds-section-header">
+            <div class="section-num">04</div>
+            <div class="section-meta">
+              <div class="section-tag">Components</div>
+              <h2 class="section-title">Cards</h2>
+            </div>
+          </div>
+          <p
+            style="
+              font-size: 0.88rem;
+              color: var(--text-mid);
+              line-height: 1.7;
+              max-width: 680px;
+            "
+          >
+            Cards always have white background, border-radius: 16px
+            (--radius-md), box-shadow: --shadow-sm, and lift on hover with
+            translateY(-8px) + --shadow-lg. Image containers have an overlay
+            gradient from bottom. Card image hover: scale(1.08) on the img
+            inside.
+          </p>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+              gap: 20px;
+            "
+          >
+            <div class="demo-card">
+              <div class="demo-card-img"><i class="fas fa-school"></i></div>
+              <div class="demo-card-body">
+                <span class="tag tag-green" style="margin-bottom: 10px"
+                  >Our School</span
+                >
+                <h3>About Us</h3>
+                <p>
+                  A cornerstone of education and community development since the
+                  early 1990s.
+                </p>
+                <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="demo-card">
+              <div
+                class="demo-card-img"
+                style="background: linear-gradient(135deg, #1a7a44, #27ae60)"
+              >
+                <i class="fas fa-book-open"></i>
+              </div>
+              <div class="demo-card-body">
+                <span class="tag tag-green" style="margin-bottom: 10px"
+                  >Curriculum</span
+                >
+                <h3>Academics</h3>
+                <p>
+                  Rich programmes designed to inspire critical thinking and
+                  lifelong learning.
+                </p>
+                <a href="#">Explore <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="demo-card">
+              <div
+                class="demo-card-img"
+                style="background: linear-gradient(135deg, #1a2e22, #1a7a44)"
+              >
+                <i class="fas fa-pen-nib"></i>
+              </div>
+              <div class="demo-card-body">
+                <span class="tag tag-accent" style="margin-bottom: 10px"
+                  ><i class="fas fa-star" style="font-size: 0.6rem"></i> Apply
+                  Now</span
+                >
+                <h3>Join Our School</h3>
+                <p>
+                  Ready to be part of Sterkspruit JSS? Begin your application
+                  today.
+                </p>
+                <a href="#">Apply <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         5. FORMS & ALERTS
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="forms">
+          <div class="ds-section-header">
+            <div class="section-num">05</div>
+            <div class="section-meta">
+              <div class="section-tag">Components</div>
+              <h2 class="section-title">Forms & Alerts</h2>
+            </div>
+          </div>
+
+          <div class="component-grid">
+            <div class="component-block">
+              <div class="comp-label">Form Fields</div>
+              <div style="display: flex; flex-direction: column; gap: 16px">
+                <div class="form-group">
+                  <label class="form-label">Full Name</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="e.g. Sipho Dlamini"
+                  />
+                  <div class="form-hint">As it appears on your ID document</div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Grade Applying For</label>
+                  <select class="form-input">
+                    <option>Select grade…</option>
+                    <option>Grade 8</option>
+                    <option>Grade 9</option>
+                  </select>
+                </div>
+                <button
+                  class="btn btn-primary"
+                  style="width: 100%; justify-content: center"
+                >
+                  Submit Application
+                </button>
+              </div>
+            </div>
+
+            <div class="component-block">
+              <div class="comp-label">Alert States</div>
+              <div style="display: flex; flex-direction: column; gap: 12px">
+                <div class="alert alert-success">
+                  <i class="fas fa-circle-check"></i>
+                  <div>
+                    <strong>Application received!</strong> We'll be in touch
+                    within 5 business days.
+                  </div>
+                </div>
+                <div class="alert alert-warn">
+                  <i class="fas fa-triangle-exclamation"></i>
+                  <div>
+                    <strong>Registration closes soon.</strong> Apply before 31
+                    January 2025.
+                  </div>
+                </div>
+                <div class="alert alert-error">
+                  <i class="fas fa-circle-xmark"></i>
+                  <div>
+                    <strong>Submission failed.</strong> Please check your
+                    details and try again.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         6. NAVIGATION COMPONENTS
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="navigation">
+          <div class="ds-section-header">
+            <div class="section-num">06</div>
+            <div class="section-meta">
+              <div class="section-tag">Components</div>
+              <h2 class="section-title">Navigation</h2>
+            </div>
+          </div>
+
+          <div
+            class="component-block"
+            style="
+              background: white;
+              border-radius: var(--radius-md);
+              padding: 24px;
+              box-shadow: var(--shadow-sm);
+            "
+          >
+            <div class="comp-label">Top Navigation Bar</div>
+            <div class="nav-demo">
+              <div class="nav-demo-brand">
+                <div class="nav-demo-logo">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="nav-demo-name">
+                  Sterkspruit<br /><span
+                    style="
+                      font-family: var(--font-body);
+                      font-size: 0.7rem;
+                      font-weight: 400;
+                      opacity: 0.75;
+                    "
+                    >Junior Secondary School</span
+                  >
+                </div>
+              </div>
+              <nav class="nav-demo-links">
+                <a href="#">About</a>
+                <a href="#">Contacts</a>
+                <a href="#">Apply</a>
+                <a href="#">Academics</a>
+              </nav>
+            </div>
+            <div
+              style="
+                font-size: 0.78rem;
+                color: var(--text-light);
+                line-height: 1.7;
+                margin-top: 12px;
+              "
+            >
+              <strong>Sticky header.</strong> Background: --green. On scroll
+              &gt;60px: darken to --green-dark + stronger shadow. Nav links:
+              Source Sans 3 600, 0.95rem. Hover: pill bg rgba(255,255,255,0.15).
+              Hamburger visible below 768px, nav links hidden.
+            </div>
+          </div>
+
+          <div class="component-grid">
+            <div class="component-block">
+              <div class="comp-label">Mobile Sidebar</div>
+              <div
+                style="
+                  display: flex;
+                  gap: 16px;
+                  align-items: flex-start;
+                  flex-wrap: wrap;
+                "
+              >
+                <div class="sidebar-demo">
+                  <a href="#" class="active"
+                    ><i class="fas fa-house"></i> Home</a
+                  >
+                  <a href="#"><i class="fas fa-info-circle"></i> About</a>
+                  <a href="#"><i class="fas fa-phone"></i> Contacts</a>
+                  <a href="#"><i class="fas fa-pen"></i> Apply</a>
+                  <a href="#"><i class="fas fa-book"></i> Academics</a>
+                </div>
+                <div
+                  style="
+                    font-size: 0.78rem;
+                    color: var(--text-light);
+                    line-height: 1.7;
+                    max-width: 220px;
+                  "
+                >
+                  Width: 260px. Background: --green-deep. Active border-left:
+                  3px solid --green. Overlay: backdrop-filter blur(3px) +
+                  rgba(0,0,0,0.5). Slide in with translateX(-100%) → 0.
+                </div>
+              </div>
+            </div>
+
+            <div class="component-block">
+              <div class="comp-label">Scrolling Motto Strip</div>
+              <div class="ticker-demo">
+                <div class="ticker-inner">
+                  <span>Forward Ever</span><span class="divider">◆</span>
+                  <span>Backward Never</span><span class="divider">◆</span>
+                  <span>Forward Ever</span><span class="divider">◆</span>
+                  <span>Backward Never</span><span class="divider">◆</span>
+                  <span>Forward Ever</span><span class="divider">◆</span>
+                  <span>Backward Never</span><span class="divider">◆</span>
+                  <span>Forward Ever</span><span class="divider">◆</span>
+                  <span>Backward Never</span><span class="divider">◆</span>
+                </div>
+              </div>
+              <div
+                style="
+                  font-size: 0.78rem;
+                  color: var(--text-light);
+                  line-height: 1.7;
+                "
+              >
+                Animation: scrollTicker 18s linear infinite. Font: 0.85rem 700,
+                ls: 0.12em, uppercase. Place between content sections.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="component-block full"
+            style="
+              background: white;
+              border-radius: var(--radius-md);
+              padding: 24px;
+              box-shadow: var(--shadow-sm);
+            "
+          >
+            <div class="comp-label">Footer</div>
+            <div class="footer-demo">
+              <div class="footer-demo-col">
+                <p
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 1rem;
+                    font-weight: 700;
+                    color: white;
+                    margin-bottom: 8px;
+                  "
+                >
+                  Sterkspruit JSS
+                </p>
+                <p class="tag-line">
+                  Shaping futures since the early 1990s. Forward ever, backward
+                  never.
+                </p>
+              </div>
+              <div class="footer-demo-col">
+                <h4>Contact</h4>
+                <p>📞 061 324 2568<br />📱 085 256 8626<br />📠 072 681 2734</p>
+              </div>
+              <div class="footer-demo-col">
+                <h4>Address</h4>
+                <p>1 Eskom Road,<br />Sterkspruit, 9762<br />P.O Box 1</p>
+              </div>
+              <div class="footer-demo-col">
+                <h4>Follow Us</h4>
+                <div class="footer-icons">
+                  <div class="footer-icon">
+                    <i class="fab fa-facebook-f"></i>
+                  </div>
+                  <div class="footer-icon"><i class="fab fa-twitter"></i></div>
+                  <div class="footer-icon">
+                    <i class="fab fa-instagram"></i>
+                  </div>
+                  <div class="footer-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                font-size: 0.78rem;
+                color: var(--text-light);
+                line-height: 1.7;
+                margin-top: 12px;
+              "
+            >
+              Background: --green-deeper. Grid: 2fr 1fr 1fr 1fr. Section
+              headings have bottom border in --green. Social icons: 38×38px
+              circles, hover fills with --green.
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         7. ICON LIBRARY
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="icons">
+          <div class="ds-section-header">
+            <div class="section-num">07</div>
+            <div class="section-meta">
+              <div class="section-tag">Components</div>
+              <h2 class="section-title">Icon Library</h2>
+            </div>
+          </div>
+          <p
+            style="font-size: 0.88rem; color: var(--text-mid); line-height: 1.7"
+          >
+            All icons use <strong>Font Awesome 6 Free</strong> (CDN:
+            cdnjs.cloudflare.com). Use
+            <code
+              style="
+                font-family: var(--font-mono);
+                font-size: 0.82rem;
+                background: var(--grey-100);
+                padding: 2px 6px;
+                border-radius: 4px;
+              "
+              >fa-solid (fas)</code
+            >
+            for filled icons and
+            <code
+              style="
+                font-family: var(--font-mono);
+                font-size: 0.82rem;
+                background: var(--grey-100);
+                padding: 2px 6px;
+                border-radius: 4px;
+              "
+              >fa-brands (fab)</code
+            >
+            for social icons. Hover each to see focus colour.
+          </p>
+          <div
+            style="
+              font-size: 0.78rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--text-light);
+            "
+          >
+            Navigation & UI
+          </div>
+          <div class="icon-grid">
+            <div class="icon-cell">
+              <i class="fas fa-bars"></i><span>fa-bars</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-times"></i><span>fa-times</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-search"></i><span>fa-search</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-home"></i><span>fa-home</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-arrow-right"></i><span>fa-arrow-right</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-arrow-left"></i><span>fa-arrow-left</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-chevron-left"></i><span>fa-chevron-left</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-chevron-right"></i><span>fa-chevron-right</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-external-link-alt"></i
+              ><span>fa-external-link</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-ellipsis-h"></i><span>fa-ellipsis-h</span>
+            </div>
+          </div>
+          <div
+            style="
+              font-size: 0.78rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--text-light);
+              margin-top: 8px;
+            "
+          >
+            School & Education
+          </div>
+          <div class="icon-grid">
+            <div class="icon-cell">
+              <i class="fas fa-graduation-cap"></i><span>graduation-cap</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-book-open"></i><span>book-open</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-school"></i><span>fa-school</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-chalkboard-teacher"></i><span>chalkboard</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-pen-nib"></i><span>fa-pen-nib</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-award"></i><span>fa-award</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-users"></i><span>fa-users</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-calendar-alt"></i><span>calendar-alt</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-clipboard-list"></i><span>clipboard-list</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-microscope"></i><span>fa-microscope</span>
+            </div>
+          </div>
+          <div
+            style="
+              font-size: 0.78rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--text-light);
+              margin-top: 8px;
+            "
+          >
+            Contact & Location
+          </div>
+          <div class="icon-grid">
+            <div class="icon-cell">
+              <i class="fas fa-phone"></i><span>fa-phone</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-mobile-alt"></i><span>mobile-alt</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-fax"></i><span>fa-fax</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-envelope"></i><span>fa-envelope</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-map-marker-alt"></i><span>map-marker</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-map-pin"></i><span>fa-map-pin</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-info-circle"></i><span>info-circle</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-circle-check"></i><span>circle-check</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-triangle-exclamation"></i
+              ><span>exclamation</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fas fa-circle-xmark"></i><span>circle-xmark</span>
+            </div>
+          </div>
+          <div
+            style="
+              font-size: 0.78rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--text-light);
+              margin-top: 8px;
+            "
+          >
+            Social (fab)
+          </div>
+          <div class="icon-grid">
+            <div class="icon-cell">
+              <i class="fab fa-facebook-f"></i><span>facebook-f</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fab fa-twitter"></i><span>fa-twitter</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fab fa-instagram"></i><span>fa-instagram</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fab fa-linkedin-in"></i><span>linkedin-in</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fab fa-youtube"></i><span>fa-youtube</span>
+            </div>
+            <div class="icon-cell">
+              <i class="fab fa-whatsapp"></i><span>fa-whatsapp</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         8. ANIMATIONS
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="animations">
+          <div class="ds-section-header">
+            <div class="section-num">08</div>
+            <div class="section-meta">
+              <div class="section-tag">Motion</div>
+              <h2 class="section-title">Animations</h2>
+            </div>
+          </div>
+          <p
+            style="
+              font-size: 0.88rem;
+              color: var(--text-mid);
+              line-height: 1.7;
+              max-width: 680px;
+            "
+          >
+            All transitions use
+            <strong>0.35s cubic-bezier(0.4, 0, 0.2, 1)</strong> — stored in
+            <code
+              style="
+                font-family: var(--font-mono);
+                font-size: 0.8rem;
+                background: var(--grey-100);
+                padding: 2px 6px;
+                border-radius: 4px;
+              "
+              >--transition</code
+            >. Hover boxes below to preview each motion pattern.
+          </p>
+          <div class="anim-grid">
+            <div class="anim-card anim-lift">
+              <div class="anim-demo-box"><i class="fas fa-arrow-up"></i></div>
+              <div class="anim-name">Lift</div>
+              <div class="anim-spec">
+                translateY(-8px)<br />box-shadow: --shadow-lg<br />Cards,
+                buttons on hover
+              </div>
+            </div>
+            <div class="anim-card anim-scale">
+              <div class="anim-demo-box"><i class="fas fa-expand"></i></div>
+              <div class="anim-name">Scale</div>
+              <div class="anim-spec">
+                scale(1.08–1.12)<br />Carousel images<br />Logo on hover
+              </div>
+            </div>
+            <div class="anim-card anim-pulse">
+              <div class="anim-demo-box"><i class="fas fa-circle"></i></div>
+              <div class="anim-name">Pulse</div>
+              <div class="anim-spec">
+                box-shadow 0→8px<br />2s infinite<br />Live badges, alerts
+              </div>
+            </div>
+            <div class="anim-card anim-spin">
+              <div class="anim-demo-box"><i class="fas fa-rotate"></i></div>
+              <div class="anim-name">Spin</div>
+              <div class="anim-spec">
+                rotate(360deg)<br />0.6s ease<br />Loader, close btn
+              </div>
+            </div>
+            <div class="anim-card anim-bg">
+              <div class="anim-demo-box"><i class="fas fa-fill-drip"></i></div>
+              <div class="anim-name">Fill</div>
+              <div class="anim-spec">
+                bg → --green<br />Social icons<br />Nav hover pills
+              </div>
+            </div>
+            <div class="anim-card">
+              <div
+                class="anim-demo-box"
+                style="animation: slideIn 0.6s ease both"
+              >
+                <i class="fas fa-eye"></i>
+              </div>
+              <div class="anim-name">Scroll Reveal</div>
+              <div class="anim-spec">
+                opacity 0→1<br />translateY(30px→0)<br />IntersectionObserver
+              </div>
+            </div>
+            <div class="anim-card">
+              <div
+                class="anim-demo-box"
+                style="
+                  overflow: hidden;
+                  padding: 0;
+                  width: 60px;
+                  height: 36px;
+                  border-radius: var(--radius-sm);
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    gap: 4px;
+                    animation: scrollTicker 3s linear infinite;
+                    width: max-content;
+                  "
+                >
+                  <span
+                    style="
+                      font-size: 0.5rem;
+                      font-weight: 700;
+                      color: var(--green-dark);
+                      white-space: nowrap;
+                      padding: 0 4px;
+                    "
+                    >FWD EVER</span
+                  >
+                  <span
+                    style="
+                      font-size: 0.5rem;
+                      font-weight: 700;
+                      color: var(--green-dark);
+                      white-space: nowrap;
+                      padding: 0 4px;
+                    "
+                    >◆</span
+                  >
+                  <span
+                    style="
+                      font-size: 0.5rem;
+                      font-weight: 700;
+                      color: var(--green-dark);
+                      white-space: nowrap;
+                      padding: 0 4px;
+                    "
+                    >FWD EVER</span
+                  >
+                  <span
+                    style="
+                      font-size: 0.5rem;
+                      font-weight: 700;
+                      color: var(--green-dark);
+                      white-space: nowrap;
+                      padding: 0 4px;
+                    "
+                    >◆</span
+                  >
+                </div>
+              </div>
+              <div class="anim-name">Ticker Scroll</div>
+              <div class="anim-spec">
+                scrollTicker<br />18s linear infinite<br />Motto strip
+              </div>
+            </div>
+            <div class="anim-card">
+              <div class="anim-demo-box" style="position: relative">
+                <i class="fas fa-image"></i>
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    border-radius: inherit;
+                    background: rgba(46, 204, 113, 0.2);
+                    animation: pulseBorder 2s infinite;
+                  "
+                ></div>
+              </div>
+              <div class="anim-name">Ken Burns</div>
+              <div class="anim-spec">
+                scale(1.05→1.0)<br />6s ease per slide<br />Carousel images
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              background: white;
+              border-radius: var(--radius-md);
+              padding: 24px;
+              box-shadow: var(--shadow-sm);
+            "
+          >
+            <div class="comp-label">Key Keyframes</div>
+            <div
+              class="code-block"
+              style="border-radius: var(--radius-sm); margin-top: 12px"
+            >
+              <span class="comment"
+                >/* Scroll reveal — apply .visible via IntersectionObserver
+                */</span
+              >
+              <span class="selector">.reveal</span> {
+              <span class="prop">opacity</span>: <span class="val">0</span>;
+              <span class="prop">transform</span>:
+              <span class="val">translateY(30px)</span>;
+              <span class="prop">transition</span>:
+              <span class="val">opacity 0.7s ease, transform 0.7s ease</span>; }
+              <span class="selector">.reveal.visible</span> {
+              <span class="prop">opacity</span>: <span class="val">1</span>;
+              <span class="prop">transform</span>:
+              <span class="val">translateY(0)</span>; }
+              <span class="selector">.reveal:nth-child(2)</span> {
+              <span class="prop">transition-delay</span>:
+              <span class="val">0.15s</span>; }
+              <span class="selector">.reveal:nth-child(3)</span> {
+              <span class="prop">transition-delay</span>:
+              <span class="val">0.30s</span>; }
+
+              <span class="comment">/* Ticker / motto strip */</span>
+              <span class="selector">@keyframes scrollTicker</span> {
+              <span class="val">from</span> {
+              <span class="prop">transform</span>:
+              <span class="val">translateX(0)</span>; }
+              <span class="val">to</span> { <span class="prop">transform</span>:
+              <span class="val">translateX(-50%)</span>; } }
+
+              <span class="comment">/* Page load stagger */</span>
+              <span class="selector">@keyframes slideIn</span> {
+              <span class="val">from</span> { <span class="prop">opacity</span>:
+              <span class="val">0</span>; <span class="prop">transform</span>:
+              <span class="val">translateY(20px)</span>; }
+              <span class="val">to</span> { <span class="prop">opacity</span>:
+              <span class="val">1</span>; <span class="prop">transform</span>:
+              <span class="val">translateY(0)</span>; } }
+
+              <span class="comment">/* Pulse glow */</span>
+              <span class="selector">@keyframes pulseBorder</span> {
+              <span class="val">0%,100%</span> {
+              <span class="prop">box-shadow</span>:
+              <span class="val">0 0 0 0px rgba(46,204,113,0)</span>; }
+              <span class="val">50%</span> {
+              <span class="prop">box-shadow</span>:
+              <span class="val">0 0 0 8px rgba(46,204,113,0.25)</span>; } }
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         9. SPACING & LAYOUT
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="spacing">
+          <div class="ds-section-header">
+            <div class="section-num">09</div>
+            <div class="section-meta">
+              <div class="section-tag">Foundation</div>
+              <h2 class="section-title">Spacing & Layout</h2>
+            </div>
+          </div>
+
+          <div class="component-grid">
+            <div class="component-block">
+              <div class="comp-label">Spacing Scale</div>
+              <div class="spacing-grid">
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 4px"></div>
+                  <div class="spacing-info">
+                    <div class="spacing-name">--space-xs</div>
+                    <div class="spacing-val">4px</div>
+                  </div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 8px"></div>
+                  <div class="spacing-info">
+                    <div class="spacing-name">--space-sm</div>
+                    <div class="spacing-val">8px</div>
+                  </div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 16px"></div>
+                  <div class="spacing-info">
+                    <div class="spacing-name">--space-md</div>
+                    <div class="spacing-val">16px</div>
+                  </div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 24px"></div>
+                  <div class="spacing-info">
+                    <div class="spacing-name">--space-lg</div>
+                    <div class="spacing-val">24px</div>
+                  </div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 40px"></div>
+                  <div class="spacing-info">
+                    <div class="spacing-name">--space-xl</div>
+                    <div class="spacing-val">40px</div>
+                  </div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 64px"></div>
+                  <div class="spacing-info">
+                    <div class="spacing-name">--space-2xl</div>
+                    <div class="spacing-val">64px</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="component-block">
+              <div class="comp-label">Border Radii</div>
+              <div class="radius-grid">
+                <div class="radius-cell">
+                  <div class="radius-box" style="border-radius: 4px"></div>
+                  <div class="radius-label">sm · 6px</div>
+                </div>
+                <div class="radius-cell">
+                  <div class="radius-box" style="border-radius: 12px"></div>
+                  <div class="radius-label">md · 12px<br />(cards)</div>
+                </div>
+                <div class="radius-cell">
+                  <div class="radius-box" style="border-radius: 20px"></div>
+                  <div class="radius-label">lg · 20px</div>
+                </div>
+                <div class="radius-cell">
+                  <div
+                    class="radius-box"
+                    style="border-radius: 999px; width: 60px; height: 32px"
+                  ></div>
+                  <div class="radius-label">pill · 999px<br />(buttons)</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="component-block full">
+              <div class="comp-label">Grid System</div>
+              <div
+                style="
+                  font-size: 0.88rem;
+                  color: var(--text-mid);
+                  line-height: 1.9;
+                "
+              >
+                <strong>Page max-width:</strong> 1300px, centered with auto
+                margins.<br />
+                <strong>Content padding:</strong> 70px 50px desktop → 50px 25px
+                tablet → 40px 20px mobile.<br />
+                <strong>Card grids:</strong>
+                <code
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 0.78rem;
+                    background: var(--grey-100);
+                    padding: 2px 6px;
+                    border-radius: 4px;
+                  "
+                  >repeat(auto-fit, minmax(300px, 1fr))</code
+                >
+                with 30px gap.<br />
+                <strong>Footer grid:</strong>
+                <code
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 0.78rem;
+                    background: var(--grey-100);
+                    padding: 2px 6px;
+                    border-radius: 4px;
+                  "
+                  >2fr 1fr 1fr 1fr</code
+                >
+                → 2-col on tablet → 1-col on mobile.<br />
+                <strong>Breakpoints:</strong> 480px (mobile-sm) · 768px (tablet)
+                · 960px (tablet-lg) · 1300px (desktop-max).
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         10. CSS VARIABLES REFERENCE
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="variables">
+          <div class="ds-section-header">
+            <div class="section-num">10</div>
+            <div class="section-meta">
+              <div class="section-tag">Foundation</div>
+              <h2 class="section-title">CSS Variables Reference</h2>
+            </div>
+          </div>
+          <p
+            style="font-size: 0.88rem; color: var(--text-mid); line-height: 1.7"
+          >
+            Copy this
+            <code
+              style="
+                font-family: var(--font-mono);
+                font-size: 0.8rem;
+                background: var(--grey-100);
+                padding: 2px 6px;
+                border-radius: 4px;
+              "
+              >:root</code
+            >
+            block into every page's CSS. Never hardcode colours — always
+            reference variables.
+          </p>
+          <div class="code-block">
+            <span class="selector">:root</span> {
+            <span class="comment">/* ── Primary Greens ── */</span>
+            <span class="prop">--green</span>: <span class="val">#2ecc71</span>;
+            <span class="comment">/* Primary / CTA */</span>
+            <span class="prop">--green-dark</span>:
+            <span class="val">#27ae60</span>;
+            <span class="comment">/* Hover states */</span>
+            <span class="prop">--green-deep</span>:
+            <span class="val">#1a7a44</span>;
+            <span class="comment">/* Sidebar, panels */</span>
+            <span class="prop">--green-deeper</span>:
+            <span class="val">#1a2e22</span>;
+            <span class="comment">/* Footer, dark bg */</span>
+            <span class="prop">--green-light</span>:
+            <span class="val">#a8edca</span>;
+            <span class="comment">/* Tags, accents on dark */</span>
+            <span class="prop">--green-bg</span>:
+            <span class="val">#f0faf5</span>;
+            <span class="comment">/* Card tints, alert bg */</span>
+
+            <span class="comment">/* ── Neutrals ── */</span>
+            <span class="prop">--white</span>: <span class="val">#ffffff</span>;
+            <span class="prop">--off-white</span>:
+            <span class="val">#f8faf9</span>;
+            <span class="prop">--grey-100</span>:
+            <span class="val">#f0f4f1</span>;
+            <span class="comment">/* Page bg */</span>
+            <span class="prop">--grey-200</span>:
+            <span class="val">#dde8e2</span>;
+            <span class="comment">/* Borders, dividers */</span>
+            <span class="prop">--grey-400</span>:
+            <span class="val">#9ab5a3</span>;
+            <span class="comment">/* Placeholder text */</span>
+            <span class="prop">--text-dark</span>:
+            <span class="val">#1a2e22</span>;
+            <span class="comment">/* Headings */</span>
+            <span class="prop">--text-mid</span>:
+            <span class="val">#3d5a48</span>;
+            <span class="comment">/* Body text */</span>
+            <span class="prop">--text-light</span>:
+            <span class="val">#6b8f7a</span>;
+            <span class="comment">/* Captions, hints */</span>
+
+            <span class="comment">/* ── Shadows ── */</span>
+            <span class="prop">--shadow-sm</span>:
+            <span class="val">0 2px 12px rgba(46,204,113,0.10)</span>;
+            <span class="prop">--shadow-md</span>:
+            <span class="val">0 8px 30px rgba(26,42,34,0.12)</span>;
+            <span class="prop">--shadow-lg</span>:
+            <span class="val">0 20px 60px rgba(26,42,34,0.18)</span>;
+
+            <span class="comment">/* ── Easing & Transition ── */</span>
+            <span class="prop">--ease</span>:
+            <span class="val">cubic-bezier(0.4, 0, 0.2, 1)</span>;
+            <span class="prop">--transition</span>:
+            <span class="val">0.35s var(--ease)</span>;
+
+            <span class="comment">/* ── Typography ── */</span>
+            <span class="prop">--font-display</span>:
+            <span class="val">'Playfair Display', Georgia, serif</span>;
+            <span class="prop">--font-body</span>:
+            <span class="val"
+              >'Source Sans 3', 'Helvetica Neue', sans-serif</span
+            >; <span class="prop">--font-mono</span>:
+            <span class="val">'JetBrains Mono', 'Courier New', monospace</span>;
+
+            <span class="comment">/* ── Spacing ── */</span>
+            <span class="prop">--space-xs</span>: <span class="val">4px</span>;
+            <span class="prop">--space-sm</span>: <span class="val">8px</span>;
+            <span class="prop">--space-md</span>: <span class="val">16px</span>;
+            <span class="prop">--space-lg</span>: <span class="val">24px</span>;
+            <span class="prop">--space-xl</span>: <span class="val">40px</span>;
+            <span class="prop">--space-2xl</span>:
+            <span class="val">64px</span>;
+
+            <span class="comment">/* ── Border Radii ── */</span>
+            <span class="prop">--radius-sm</span>: <span class="val">6px</span>;
+            <span class="prop">--radius-md</span>:
+            <span class="val">12px</span>;
+            <span class="comment">/* Default cards */</span>
+            <span class="prop">--radius-lg</span>:
+            <span class="val">20px</span>;
+            <span class="prop">--radius-pill</span>:
+            <span class="val">999px</span>;
+            <span class="comment">/* Buttons, tags, dots */</span> }
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         11. PAGE BLUEPRINTS
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="blueprints">
+          <div class="ds-section-header">
+            <div class="section-num">11</div>
+            <div class="section-meta">
+              <div class="section-tag">Pages</div>
+              <h2 class="section-title">Page Blueprints</h2>
+            </div>
+          </div>
+          <p
+            style="
+              font-size: 0.88rem;
+              color: var(--text-mid);
+              line-height: 1.7;
+              max-width: 680px;
+            "
+          >
+            Every page shares the same sticky header and footer. Below are the
+            unique zone layouts for each inner page. All content zones use
+            scroll-reveal (<code
+              style="
+                font-family: var(--font-mono);
+                font-size: 0.78rem;
+                background: var(--grey-100);
+                padding: 2px 6px;
+                border-radius: 4px;
+              "
+              >.reveal</code
+            >
+            class).
+          </p>
+
+          <div class="blueprint-grid">
+            <div class="blueprint">
+              <div class="blueprint-header">
+                <h4>🏠 Home (index.html)</h4>
+                <span class="bp-tag">Done</span>
+              </div>
+              <div class="blueprint-body">
+                <div class="bp-zone nav">
+                  <i class="fas fa-bars"></i> Sticky Navbar (logo + links +
+                  hamburger)
+                </div>
+                <div class="bp-zone hero">
+                  <i class="fas fa-images"></i> Hero Carousel — crossfade + Ken
+                  Burns + overlay cards
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-chart-bar"></i> Welcome Banner — stats
+                  counters + motto
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-th-large"></i> 3-column Card Grid (Intro,
+                  About, Academics)
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-stream"></i> Scrolling Motto Strip
+                </div>
+                <div class="bp-zone footer">
+                  <i class="fas fa-shoe-prints"></i> Footer — 4 columns
+                </div>
+              </div>
+            </div>
+
+            <div class="blueprint">
+              <div class="blueprint-header">
+                <h4>ℹ️ About (about.html)</h4>
+                <span class="bp-tag">Build</span>
+              </div>
+              <div class="blueprint-body">
+                <div class="bp-zone nav">
+                  <i class="fas fa-bars"></i> Sticky Navbar
+                </div>
+                <div class="bp-zone hero" style="height: 56px">
+                  <i class="fas fa-image"></i> Page Hero — title + tagline +
+                  school image bg
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-align-left"></i> History section — text +
+                  image split layout
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-bullseye"></i> Mission / Vision / Values — 3
+                  icon cards
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-users"></i> Leadership / Staff grid
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-stream"></i> Motto Strip
+                </div>
+                <div class="bp-zone footer">
+                  <i class="fas fa-shoe-prints"></i> Footer
+                </div>
+              </div>
+            </div>
+
+            <div class="blueprint">
+              <div class="blueprint-header">
+                <h4>📚 Academics (academics.html)</h4>
+                <span class="bp-tag">Build</span>
+              </div>
+              <div class="blueprint-body">
+                <div class="bp-zone nav">
+                  <i class="fas fa-bars"></i> Sticky Navbar
+                </div>
+                <div class="bp-zone hero" style="height: 56px">
+                  <i class="fas fa-book-open"></i> Page Hero — "Our Curriculum"
+                  headline
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-th"></i> Subject cards grid — icon + name +
+                  description
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-trophy"></i> Academic achievements /
+                  highlights strip
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-calendar-alt"></i> Term dates table
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-download"></i> Resource downloads (timetable,
+                  syllabus)
+                </div>
+                <div class="bp-zone footer">
+                  <i class="fas fa-shoe-prints"></i> Footer
+                </div>
+              </div>
+            </div>
+
+            <div class="blueprint">
+              <div class="blueprint-header">
+                <h4>✏️ Apply (apply.html)</h4>
+                <span class="bp-tag">Build</span>
+              </div>
+              <div class="blueprint-body">
+                <div class="bp-zone nav">
+                  <i class="fas fa-bars"></i> Sticky Navbar
+                </div>
+                <div class="bp-zone hero" style="height: 56px">
+                  <i class="fas fa-pen"></i> Page Hero — "Apply to Join Us"
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-list-ol"></i> Requirements / eligibility
+                  checklist
+                </div>
+                <div class="bp-zone content" style="height: 80px">
+                  <i class="fas fa-wpforms"></i> Application form — multi-field
+                  + validation + success alert
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-calendar-check"></i> Key dates timeline
+                </div>
+                <div class="bp-zone footer">
+                  <i class="fas fa-shoe-prints"></i> Footer
+                </div>
+              </div>
+            </div>
+
+            <div class="blueprint">
+              <div class="blueprint-header">
+                <h4>📞 Contact (contact.html)</h4>
+                <span class="bp-tag">Build</span>
+              </div>
+              <div class="blueprint-body">
+                <div class="bp-zone nav">
+                  <i class="fas fa-bars"></i> Sticky Navbar
+                </div>
+                <div class="bp-zone hero" style="height: 56px">
+                  <i class="fas fa-headset"></i> Page Hero — "Get in Touch"
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-grip-horizontal"></i> 3 info cards — Phone,
+                  Address, Email
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-paper-plane"></i> Contact form — name, email,
+                  message + submit
+                </div>
+                <div class="bp-zone content">
+                  <i class="fas fa-map"></i> Embedded map (Google Maps iframe)
+                </div>
+                <div class="bp-zone footer">
+                  <i class="fas fa-shoe-prints"></i> Footer
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         12. DO'S & DON'TS
+    ═══════════════════════════════════ -->
+        <section class="ds-section" id="rules">
+          <div class="ds-section-header">
+            <div class="section-num">12</div>
+            <div class="section-meta">
+              <div class="section-tag">Rules</div>
+              <h2 class="section-title">Do's &amp; Don'ts</h2>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <div class="rule-card do">
+              <div class="rule-header">
+                <i class="fas fa-circle-check" style="font-size: 1.1rem"></i>
+                Always Do
+              </div>
+              <div class="rule-list">
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Use
+                  <strong>Playfair Display</strong> for all headings and display
+                  text
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Use CSS variables (e.g.
+                  <code
+                    style="font-family: var(--font-mono); font-size: 0.75rem"
+                    >var(--green)</code
+                  >) — never hardcode colours
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Apply
+                  <strong>transition: var(--transition)</strong> to all
+                  interactive elements
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Make the header sticky (position:
+                  sticky; top: 0) on every page
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Add <strong>.reveal</strong> +
+                  IntersectionObserver scroll animations to content sections
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Use pill border-radius (999px)
+                  for all buttons and tags
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Replicate the sidebar + overlay
+                  pattern for mobile nav on every page
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Use Font Awesome 6 Free for all
+                  icons (fa-solid / fa-brands)
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Include the scrolling motto strip
+                  between major content sections
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Keep footer consistent — dark bg
+                  (#1a2e22) + 4 columns + social icons
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Lift cards on hover:
+                  translateY(-6 to -8px) + --shadow-lg
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-check"></i> Use <strong>clamp()</strong> for
+                  responsive font sizes in hero headings
+                </div>
+              </div>
+            </div>
+
+            <div class="rule-card dont">
+              <div class="rule-header">
+                <i class="fas fa-circle-xmark" style="font-size: 1.1rem"></i>
+                Never Do
+              </div>
+              <div class="rule-list">
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't use Arial, Roboto, Inter,
+                  or system-ui for any text
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't hardcode hex colours —
+                  always reference CSS variables
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't change the primary green
+                  (#2ecc71) to another hue
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't use sharp corners on cards
+                  — minimum border-radius: 12px
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't remove the overlay when the
+                  sidebar is open
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't use square buttons — always
+                  pill-shaped (border-radius: 999px)
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't animate with linear easing
+                  — use cubic-bezier(0.4,0,0.2,1)
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't use purple, blue or red as
+                  a primary colour
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't skip the sticky header — it
+                  must appear on every page
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't use &lt;table&gt; for
+                  layout — use CSS Grid or Flexbox
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't forget mobile breakpoints
+                  at 768px and 480px
+                </div>
+                <div class="rule-item">
+                  <i class="fas fa-times"></i> Don't use Bootstrap classes —
+                  write custom CSS using the variables
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Prompt Hint -->
+          <div
+            style="
+              background: var(--green-deeper);
+              border-radius: var(--radius-md);
+              padding: 28px 32px;
+              display: flex;
+              flex-direction: column;
+              gap: 14px;
+            "
+          >
+            <div style="display: flex; align-items: center; gap: 12px">
+              <div
+                style="
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  background: rgba(168, 237, 202, 0.15);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: var(--green-light);
+                  font-size: 1.1rem;
+                  flex-shrink: 0;
+                "
+              >
+                <i class="fas fa-robot"></i>
+              </div>
+              <div
+                style="
+                  font-family: var(--font-display);
+                  font-size: 1.1rem;
+                  font-weight: 700;
+                  color: white;
+                "
+              >
+                AI Prompt Starter
+              </div>
+            </div>
+            <p
+              style="
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 0.88rem;
+                line-height: 1.7;
+              "
+            >
+              When asking an AI to build a new page, paste the following at the
+              start of your prompt:
+            </p>
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: var(--radius-sm);
+                padding: 18px 20px;
+                font-family: var(--font-mono);
+                font-size: 0.78rem;
+                color: rgba(255, 255, 255, 0.8);
+                line-height: 1.9;
+              "
+            >
+              Build a [PAGE NAME] page for Sterkspruit Junior Secondary School
+              website.<br />
+              Follow the design system exactly:<br />
+              — Fonts: Playfair Display (headings, 700/900) + Source Sans 3
+              (body, 300/400/600/700)<br />
+              — Primary colour: #2ecc71 (--green). Dark: #27ae60. Deep: #1a7a44.
+              Footer bg: #1a2e22<br />
+              — All CSS variables in :root (see design board)<br />
+              — Sticky green header with logo, nav links, hamburger for mobile,
+              sidebar + overlay<br />
+              — All transitions: 0.35s cubic-bezier(0.4,0,0.2,1)<br />
+              — Cards: white bg, 16px radius, box-shadow, lift on hover<br />
+              — Buttons: pill-shaped (999px radius), green primary,
+              translateY(-2px) on hover<br />
+              — Tags: uppercase, 0.7rem, 700 weight, letter-spacing 0.18em<br />
+              — IntersectionObserver scroll-reveal on all content sections
+              (.reveal class)<br />
+              — Footer: dark (#1a2e22), 4-column grid, green underline on
+              headings, social icons<br />
+              — Scrolling motto strip: "Forward Ever ◆ Backward Never" between
+              sections<br />
+              — Icons: Font Awesome 6 Free (fas / fab)<br />
+              — Mobile breakpoints: 768px (tablet), 480px (mobile)<br />
+              — No Bootstrap, no hardcoded colours, no Arial/Roboto/Inter
+              fonts<br />
+              — Motto: "Forward Ever, Backward Never"
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">
+      <i class="fas fa-check"></i> Copied to clipboard!
+    </div>
+
+    <script>
+      // ── Sidebar highlight on scroll ──
+      const sections = document.querySelectorAll(".ds-section");
+      const navLinks = document.querySelectorAll(".sidenav a");
+
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              navLinks.forEach((a) => a.classList.remove("active"));
+              const active = document.querySelector(
+                `.sidenav a[href="#${e.target.id}"]`,
+              );
+              if (active) active.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.25, rootMargin: "-80px 0px -60% 0px" },
+      );
+
+      sections.forEach((s) => obs.observe(s));
+
+      // ── Copy hex on swatch click ──
+      function copy(text) {
+        navigator.clipboard.writeText(text).then(() => {
+          const toast = document.getElementById("toast");
+          toast.innerHTML = `<i class="fas fa-check"></i> Copied ${text}`;
+          toast.classList.add("show");
+          setTimeout(() => toast.classList.remove("show"), 2200);
+        });
+      }
+
+      // Copy code block on click
+      document.querySelectorAll(".code-block").forEach((block) => {
+        block.style.cursor = "pointer";
+        block.title = "Click to copy";
+        block.addEventListener("click", () => {
+          const text = block.innerText;
+          navigator.clipboard.writeText(text).then(() => {
+            const toast = document.getElementById("toast");
+            toast.innerHTML = `<i class="fas fa-check"></i> Code copied!`;
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 2200);
+          });
+        });
+      });
+
+      // ── Dot switcher demo ──
+      document.querySelectorAll(".dot-d").forEach((dot, i, arr) => {
+        dot.addEventListener("click", () => {
+          arr.forEach((d) => d.classList.remove("active"));
+          dot.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
