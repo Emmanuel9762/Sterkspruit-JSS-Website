@@ -1,63 +1,913 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application for Admission to School</title>
-    <link rel="stylesheet" href="apply.css">
-</head>
-<body>
-    <header>
-        <h1 id="main-title">APPLICATIONS AT STERKSPRUIT JUNIOR SECONDARY SCHOOL</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sterkspruit JSS — Apply to Study</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="apply.css" />
+  </head>
+  <body>
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul>
+        <li>
+          <a href="../index.html"><i class="fas fa-house"></i> Home</a>
+        </li>
+        <li>
+          <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        </li>
+        <li>
+          <a href="contact.html"><i class="fas fa-phone"></i> Contacts</a>
+        </li>
+        <li>
+          <a href="apply.html"><i class="fas fa-pen"></i> Apply to Study</a>
+        </li>
+        <li>
+          <a href="academics.html"><i class="fas fa-book"></i> Academics</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- HEADER -->
+    <header id="stickyHeader">
+      <nav class="navbar">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../Assets/STERKSPRUIT JSS.jpg" alt="Sterkspruit JSS Logo" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contacts</a></li>
+          <li><a href="apply.html" class="active">Apply to Study</a></li>
+          <li><a href="academics.html">Academics</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
     </header>
 
-    <div class="container">
-        <div class="coming-soon">
-            <h2>Online Applications Coming Soon</h2>
-            <p>We are currently working on bringing our application process online. Please check back soon for updates.</p>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="hero-inner">
+        <div class="hero-eyebrow reveal">Join Our Community</div>
+        <h1 class="reveal">Apply to<br />Sterkspruit JSS</h1>
+        <p class="sub reveal">
+          Take the first step towards a bright future. Download our application
+          form or complete your enquiry below — we look forward to welcoming
+          you.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#application-form" class="btn-hero">
+            <i class="fas fa-pen"></i> Start Application
+          </a>
+          <a href="#" download class="btn-hero-outline">
+            <i class="fas fa-download"></i> Download PDF Form
+          </a>
         </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
 
-        <div class="pdf-download">
-            <a href="#" download>
-                <img src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/icons/download.svg" alt="Download Icon" width="24" height="24">
-                Download PDF Application Form
-            </a>
-        </div>
-
-        <div class="form-container">
-            <div class="form-overlay">
-                Applications Coming Soon
-            </div>
-            <form>
-                <h1>Application for Admission to School</h1>
-                <h2>STERKSPRUIT JUNIOR SECONDARY SCHOOL</h2>
-
-                <!-- Form content starts here -->
-                <div class="form-section">
-                    <label for="grade_applied">Grade Applied For:</label>
-                    <input type="text" id="grade_applied" name="grade_applied">
-
-                    <label for="highest_grade_passed">Highest Grade Passed:</label>
-                    <input type="text" id="highest_grade_passed" name="highest_grade_passed">
-
-                    <!-- Add more form fields here -->
-                </div>
-
-                <!-- Add more form sections as needed -->
-
-                <div class="form-section">
-                    <p>I hereby declare that to the best of my knowledge, the above information as supplied is accurate and correct.</p>
-                    <label for="parent_guardian_name">Name of Parent / Guardian:</label>
-                    <input type="text" id="parent_guardian_name" name="parent_guardian_name">
-
-                    <label for="parent_guardian_signature">Signature of Parent / Guardian:</label>
-                    <input type="text" id="parent_guardian_signature" name="parent_guardian_signature">
-
-                    <label for="date">Date:</label>
-                    <input type="text" id="date" name="date">
-                </div>
-            </form>
-        </div>
+    <!-- MOTTO STRIP -->
+    <div class="motto-strip">
+      <div class="motto-ticker">
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+      </div>
     </div>
-</body>
+
+    <!-- REQUIREMENTS SECTION -->
+    <section class="requirements-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Before You Apply</span>
+          <h2 class="section-heading">Eligibility & Requirements</h2>
+          <p class="section-sub">
+            Please review the following requirements to ensure your application
+            is complete and eligible for consideration.
+          </p>
+        </div>
+
+        <div class="req-grid">
+          <div class="req-card reveal">
+            <div class="req-icon"><i class="fas fa-user-graduate"></i></div>
+            <h3>Age Requirement</h3>
+            <p>
+              Applicants for Grade 8 must be between 13 and 15 years of age at
+              the start of the academic year.
+            </p>
+          </div>
+          <div class="req-card reveal">
+            <div class="req-icon"><i class="fas fa-file-alt"></i></div>
+            <h3>Previous School Records</h3>
+            <p>
+              A certified copy of the latest school report (Grade 7 for new
+              Grade 8 entrants) is required with your application.
+            </p>
+          </div>
+          <div class="req-card reveal">
+            <div class="req-icon"><i class="fas fa-id-card"></i></div>
+            <h3>Identity Documents</h3>
+            <p>
+              Certified copies of the learner's birth certificate and the parent
+              or guardian's ID document must be included.
+            </p>
+          </div>
+          <div class="req-card reveal">
+            <div class="req-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <h3>Proof of Residence</h3>
+            <p>
+              A utility bill or official document confirming your residential
+              address within the school's catchment area.
+            </p>
+          </div>
+          <div class="req-card reveal">
+            <div class="req-icon"><i class="fas fa-calendar-check"></i></div>
+            <h3>Application Deadline</h3>
+            <p>
+              Applications for the 2025 academic year must be submitted no later
+              than <strong>31 October 2024</strong>.
+            </p>
+          </div>
+          <div class="req-card reveal">
+            <div class="req-icon accent-gold">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <h3>Transfer Applicants</h3>
+            <p>
+              Learners transferring from another school must provide a transfer
+              letter and clearance from their previous institution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY DATES TIMELINE -->
+    <section class="timeline-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Important Dates</span>
+          <h2 class="section-heading">Application Timeline</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="tl-dot"><i class="fas fa-flag"></i></div>
+            <div class="tl-content">
+              <div class="tl-date">1 August 2024</div>
+              <h4>Applications Open</h4>
+              <p>
+                Online enquiries and PDF downloads become available for the 2025
+                academic year.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-dot"><i class="fas fa-file-upload"></i></div>
+            <div class="tl-content">
+              <div class="tl-date">31 October 2024</div>
+              <h4>Application Deadline</h4>
+              <p>
+                All completed applications must be submitted to the school
+                office by this date.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-dot"><i class="fas fa-envelope-open-text"></i></div>
+            <div class="tl-content">
+              <div class="tl-date">November 2024</div>
+              <h4>Outcome Notifications</h4>
+              <p>
+                Applicants will be notified of the outcome of their application
+                via phone or written letter.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-dot accent-gold">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="tl-content">
+              <div class="tl-date">January 2025</div>
+              <h4>School Year Begins</h4>
+              <p>
+                Successful applicants register and begin the 2025 academic year
+                at Sterkspruit JSS.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMING SOON NOTICE + PDF DOWNLOAD -->
+    <section class="notice-section">
+      <div class="container">
+        <div class="notice-grid reveal">
+          <div class="notice-card coming-soon-card">
+            <div class="notice-icon"><i class="fas fa-hourglass-half"></i></div>
+            <div class="notice-body">
+              <h3>Online Applications Coming Soon</h3>
+              <p>
+                We are currently building our online application portal. In the
+                meantime, please download the PDF form, complete it, and deliver
+                it to our school office.
+              </p>
+            </div>
+          </div>
+          <div class="notice-card pdf-card">
+            <div class="notice-icon green"><i class="fas fa-file-pdf"></i></div>
+            <div class="notice-body">
+              <h3>Download Application Form</h3>
+              <p>
+                Download, print, and complete the official PDF application form.
+                Return it to our admin office at 1 Eskom Road, Sterkspruit.
+              </p>
+              <a href="#" download class="btn-download">
+                <i class="fas fa-download"></i> Download PDF Form
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLICATION FORM -->
+    <section class="form-section-wrapper" id="application-form">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Enquiry Form</span>
+          <h2 class="section-heading">Express Your Interest</h2>
+          <p class="section-sub">
+            Submit your details below and our admin team will contact you with
+            full application instructions. Fields marked
+            <span class="req-star">*</span> are required.
+          </p>
+        </div>
+
+        <div class="form-card reveal">
+          <!-- STEP INDICATOR -->
+          <div class="form-steps">
+            <div class="step active" data-step="1">
+              <div class="step-dot">1</div>
+              <span>Learner Info</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="2">
+              <div class="step-dot">2</div>
+              <span>Parent / Guardian</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="3">
+              <div class="step-dot">3</div>
+              <span>Review & Submit</span>
+            </div>
+          </div>
+
+          <form id="apply-form" novalidate>
+            <!-- STEP 1: LEARNER INFO -->
+            <div class="form-page active" id="page-1">
+              <h3 class="form-page-title">
+                <i class="fas fa-user-graduate"></i> Learner Information
+              </h3>
+
+              <div class="field-row two-col">
+                <div class="field-group">
+                  <label for="learner_first"
+                    >First Name <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="learner_first"
+                    name="learner_first"
+                    placeholder="e.g. Sipho"
+                    required
+                  />
+                  <span class="field-error"
+                    >Please enter the learner's first name.</span
+                  >
+                </div>
+                <div class="field-group">
+                  <label for="learner_last"
+                    >Surname <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="learner_last"
+                    name="learner_last"
+                    placeholder="e.g. Dlamini"
+                    required
+                  />
+                  <span class="field-error"
+                    >Please enter the learner's surname.</span
+                  >
+                </div>
+              </div>
+
+              <div class="field-row two-col">
+                <div class="field-group">
+                  <label for="learner_dob"
+                    >Date of Birth <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="date"
+                    id="learner_dob"
+                    name="learner_dob"
+                    required
+                  />
+                  <span class="field-error"
+                    >Please enter the learner's date of birth.</span
+                  >
+                </div>
+                <div class="field-group">
+                  <label for="learner_gender"
+                    >Gender <span class="req-star">*</span></label
+                  >
+                  <select id="learner_gender" name="learner_gender" required>
+                    <option value="">Select…</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Prefer not to say</option>
+                  </select>
+                  <span class="field-error">Please select a gender.</span>
+                </div>
+              </div>
+
+              <div class="field-row two-col">
+                <div class="field-group">
+                  <label for="grade_applied"
+                    >Grade Applying For <span class="req-star">*</span></label
+                  >
+                  <select id="grade_applied" name="grade_applied" required>
+                    <option value="">Select grade…</option>
+                    <option>Grade 8</option>
+                    <option>Grade 9</option>
+                  </select>
+                  <span class="field-error">Please select a grade.</span>
+                </div>
+                <div class="field-group">
+                  <label for="highest_grade"
+                    >Highest Grade Passed <span class="req-star">*</span></label
+                  >
+                  <select id="highest_grade" name="highest_grade" required>
+                    <option value="">Select grade…</option>
+                    <option>Grade 6</option>
+                    <option>Grade 7</option>
+                    <option>Grade 8</option>
+                  </select>
+                  <span class="field-error"
+                    >Please select the highest grade passed.</span
+                  >
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="previous_school"
+                    >Previous School <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="previous_school"
+                    name="previous_school"
+                    placeholder="Name of previous school"
+                    required
+                  />
+                  <span class="field-error"
+                    >Please enter the name of the previous school.</span
+                  >
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="learner_address"
+                    >Residential Address <span class="req-star">*</span></label
+                  >
+                  <textarea
+                    id="learner_address"
+                    name="learner_address"
+                    rows="3"
+                    placeholder="Street address, Sterkspruit"
+                    required
+                  ></textarea>
+                  <span class="field-error"
+                    >Please enter the residential address.</span
+                  >
+                </div>
+              </div>
+
+              <div class="form-nav">
+                <div></div>
+                <button type="button" class="btn-next" id="next-1">
+                  Next <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 2: PARENT / GUARDIAN -->
+            <div class="form-page" id="page-2">
+              <h3 class="form-page-title">
+                <i class="fas fa-users"></i> Parent / Guardian Information
+              </h3>
+
+              <div class="field-row two-col">
+                <div class="field-group">
+                  <label for="guardian_first"
+                    >First Name <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="guardian_first"
+                    name="guardian_first"
+                    placeholder="e.g. Nomsa"
+                    required
+                  />
+                  <span class="field-error"
+                    >Please enter the guardian's first name.</span
+                  >
+                </div>
+                <div class="field-group">
+                  <label for="guardian_last"
+                    >Surname <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="guardian_last"
+                    name="guardian_last"
+                    placeholder="e.g. Dlamini"
+                    required
+                  />
+                  <span class="field-error"
+                    >Please enter the guardian's surname.</span
+                  >
+                </div>
+              </div>
+
+              <div class="field-row two-col">
+                <div class="field-group">
+                  <label for="guardian_relation"
+                    >Relationship to Learner
+                    <span class="req-star">*</span></label
+                  >
+                  <select
+                    id="guardian_relation"
+                    name="guardian_relation"
+                    required
+                  >
+                    <option value="">Select…</option>
+                    <option>Parent</option>
+                    <option>Legal Guardian</option>
+                    <option>Grandparent</option>
+                    <option>Other</option>
+                  </select>
+                  <span class="field-error">Please select a relationship.</span>
+                </div>
+                <div class="field-group">
+                  <label for="guardian_id"
+                    >ID Number <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="guardian_id"
+                    name="guardian_id"
+                    placeholder="13-digit ID number"
+                    maxlength="13"
+                    required
+                  />
+                  <span class="field-error"
+                    >Please enter a valid ID number.</span
+                  >
+                </div>
+              </div>
+
+              <div class="field-row two-col">
+                <div class="field-group">
+                  <label for="guardian_phone"
+                    >Phone Number <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="tel"
+                    id="guardian_phone"
+                    name="guardian_phone"
+                    placeholder="e.g. 061 234 5678"
+                    required
+                  />
+                  <span class="field-error">Please enter a phone number.</span>
+                </div>
+                <div class="field-group">
+                  <label for="guardian_email">Email Address</label>
+                  <input
+                    type="email"
+                    id="guardian_email"
+                    name="guardian_email"
+                    placeholder="e.g. parent@email.com"
+                  />
+                  <span class="field-hint">Optional — for notifications</span>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="guardian_address"
+                    >Address (if different from learner)
+                  </label>
+                  <textarea
+                    id="guardian_address"
+                    name="guardian_address"
+                    rows="3"
+                    placeholder="Leave blank if same as learner's address"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="form-nav">
+                <button type="button" class="btn-back" id="back-2">
+                  <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button type="button" class="btn-next" id="next-2">
+                  Next <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 3: REVIEW & SUBMIT -->
+            <div class="form-page" id="page-3">
+              <h3 class="form-page-title">
+                <i class="fas fa-clipboard-check"></i> Review & Submit
+              </h3>
+
+              <div class="review-section">
+                <div class="review-header">
+                  <i class="fas fa-user-graduate"></i> Learner Details
+                  <button type="button" class="review-edit" data-goto="1">
+                    Edit <i class="fas fa-pen"></i>
+                  </button>
+                </div>
+                <div class="review-grid" id="review-learner"></div>
+              </div>
+
+              <div class="review-section">
+                <div class="review-header">
+                  <i class="fas fa-users"></i> Parent / Guardian Details
+                  <button type="button" class="review-edit" data-goto="2">
+                    Edit <i class="fas fa-pen"></i>
+                  </button>
+                </div>
+                <div class="review-grid" id="review-guardian"></div>
+              </div>
+
+              <div class="declaration-box">
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    id="declaration"
+                    name="declaration"
+                    required
+                  />
+                  <span class="checkbox-custom"></span>
+                  <span>
+                    I hereby declare that to the best of my knowledge, all
+                    information provided above is accurate and correct. I
+                    understand that submitting false information may result in
+                    the cancellation of the application.
+                  </span>
+                </label>
+                <span class="field-error" id="declaration-error"
+                  >You must accept the declaration to submit.</span
+                >
+              </div>
+
+              <div class="form-nav">
+                <button type="button" class="btn-back" id="back-3">
+                  <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button type="submit" class="btn-submit" id="submit-btn">
+                  <i class="fas fa-paper-plane"></i> Submit Application
+                </button>
+              </div>
+            </div>
+
+            <!-- SUCCESS STATE -->
+            <div class="form-success" id="form-success">
+              <div class="success-icon">
+                <i class="fas fa-circle-check"></i>
+              </div>
+              <h3>Application Submitted!</h3>
+              <p>
+                Thank you — your enquiry has been received. Our admin team will
+                contact you shortly with next steps. Please also download the
+                PDF form and bring the required documents to the school office.
+              </p>
+              <a
+                href="#"
+                download
+                class="btn-download"
+                style="margin-top: 20px"
+              >
+                <i class="fas fa-download"></i> Download PDF Form
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTTO STRIP -->
+    <div class="motto-strip">
+      <div class="motto-ticker">
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-brand">
+        <img src="../Assets/STERKSPRUIT JSS.jpg" alt="Logo" />
+        <p>
+          Sterkspruit Junior Secondary School — shaping futures since the early
+          1990s.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-phone"></i> 061 324 2568</p>
+        <p><i class="fas fa-mobile-alt"></i> 085 256 8626</p>
+        <p><i class="fas fa-fax"></i> 072 681 2734</p>
+      </div>
+      <div class="footer-col">
+        <h3>Address</h3>
+        <p>
+          <i class="fas fa-map-marker-alt"></i> 1 Eskom Road,<br />Sterkspruit,
+          9762
+        </p>
+        <p><i class="fas fa-envelope"></i> P.O Box 1,<br />Sterkspruit, 9762</p>
+      </div>
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Sterkspruit Junior Secondary School. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // ── Sticky header ────────────────────────────────────
+        const header = document.getElementById("stickyHeader");
+        window.addEventListener("scroll", function () {
+          header.classList.toggle("scrolled", window.scrollY > 60);
+        });
+
+        // ── Sidebar ──────────────────────────────────────────
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        const sidebarClose = document.getElementById("sidebar-close");
+
+        function openSidebar() {
+          sidebar.classList.add("active");
+          overlay.classList.add("active");
+          hamburgerBtn.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+        function closeSidebar() {
+          sidebar.classList.remove("active");
+          overlay.classList.remove("active");
+          hamburgerBtn.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+        hamburgerBtn.addEventListener("click", openSidebar);
+        sidebarClose.addEventListener("click", closeSidebar);
+        overlay.addEventListener("click", closeSidebar);
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeSidebar();
+        });
+
+        // ── Scroll reveal ────────────────────────────────────
+        const reveals = document.querySelectorAll(".reveal");
+        const revealObs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) e.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+        );
+        reveals.forEach(function (el) {
+          revealObs.observe(el);
+        });
+
+        // ── Multi-step form ──────────────────────────────────
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function showStep(n) {
+          document.querySelectorAll(".form-page").forEach(function (p) {
+            p.classList.remove("active");
+          });
+          document.getElementById("page-" + n).classList.add("active");
+
+          document.querySelectorAll(".step").forEach(function (s) {
+            const num = parseInt(s.dataset.step);
+            s.classList.toggle("active", num === n);
+            s.classList.toggle("done", num < n);
+          });
+
+          currentStep = n;
+          // Scroll to form top smoothly
+          document
+            .getElementById("application-form")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        // Validate a step's required fields
+        function validateStep(n) {
+          const page = document.getElementById("page-" + n);
+          const required = page.querySelectorAll("[required]");
+          let valid = true;
+          required.forEach(function (field) {
+            const group =
+              field.closest(".field-group") ||
+              field.closest(".declaration-box");
+            if (
+              !field.value.trim() ||
+              (field.tagName === "SELECT" && field.value === "")
+            ) {
+              group && group.classList.add("error");
+              valid = false;
+            } else {
+              group && group.classList.remove("error");
+            }
+          });
+          return valid;
+        }
+
+        // Clear errors on input
+        document
+          .querySelectorAll("input, select, textarea")
+          .forEach(function (el) {
+            el.addEventListener("input", function () {
+              const group = el.closest(".field-group");
+              if (group) group.classList.remove("error");
+            });
+          });
+
+        document
+          .getElementById("next-1")
+          .addEventListener("click", function () {
+            if (validateStep(1)) showStep(2);
+          });
+        document
+          .getElementById("next-2")
+          .addEventListener("click", function () {
+            if (validateStep(2)) {
+              buildReview();
+              showStep(3);
+            }
+          });
+        document
+          .getElementById("back-2")
+          .addEventListener("click", function () {
+            showStep(1);
+          });
+        document
+          .getElementById("back-3")
+          .addEventListener("click", function () {
+            showStep(2);
+          });
+
+        // Edit buttons in review
+        document.querySelectorAll(".review-edit").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            showStep(parseInt(btn.dataset.goto));
+          });
+        });
+
+        // Build review summary
+        function buildReview() {
+          const learnerFields = [
+            ["First Name", document.getElementById("learner_first").value],
+            ["Surname", document.getElementById("learner_last").value],
+            ["Date of Birth", document.getElementById("learner_dob").value],
+            ["Gender", document.getElementById("learner_gender").value],
+            ["Grade Applying", document.getElementById("grade_applied").value],
+            ["Highest Grade", document.getElementById("highest_grade").value],
+            [
+              "Previous School",
+              document.getElementById("previous_school").value,
+            ],
+            ["Address", document.getElementById("learner_address").value],
+          ];
+          const guardianFields = [
+            ["First Name", document.getElementById("guardian_first").value],
+            ["Surname", document.getElementById("guardian_last").value],
+            [
+              "Relationship",
+              document.getElementById("guardian_relation").value,
+            ],
+            ["ID Number", document.getElementById("guardian_id").value],
+            ["Phone", document.getElementById("guardian_phone").value],
+            ["Email", document.getElementById("guardian_email").value || "—"],
+            [
+              "Address",
+              document.getElementById("guardian_address").value ||
+                "Same as learner",
+            ],
+          ];
+
+          function renderGrid(containerId, fields) {
+            const el = document.getElementById(containerId);
+            el.innerHTML = fields
+              .map(function (f) {
+                return (
+                  '<div class="review-item"><span class="review-label">' +
+                  f[0] +
+                  '</span><span class="review-value">' +
+                  (f[1] || "—") +
+                  "</span></div>"
+                );
+              })
+              .join("");
+          }
+
+          renderGrid("review-learner", learnerFields);
+          renderGrid("review-guardian", guardianFields);
+        }
+
+        // Submit
+        document
+          .getElementById("apply-form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const decl = document.getElementById("declaration");
+            const declErr = document.getElementById("declaration-error");
+            if (!decl.checked) {
+              declErr.style.display = "block";
+              return;
+            }
+            declErr.style.display = "none";
+
+            const btn = document.getElementById("submit-btn");
+            btn.innerHTML =
+              '<i class="fas fa-spinner fa-spin"></i> Submitting…';
+            btn.disabled = true;
+
+            setTimeout(function () {
+              document.querySelectorAll(".form-page").forEach(function (p) {
+                p.classList.remove("active");
+              });
+              document.querySelector(".form-steps").style.display = "none";
+              document.getElementById("form-success").classList.add("active");
+            }, 1400);
+          });
+      });
+    </script>
+  </body>
 </html>

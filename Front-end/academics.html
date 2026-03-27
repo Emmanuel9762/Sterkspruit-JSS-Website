@@ -1,132 +1,710 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academics - Nomzamo JSS</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="academics.css">
-</head>
-<body>
-    <header class="bg-success  p-4">
-        <h1 class="text-white">Academics at Nomzamo Junior Secondary School</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sterkspruit JSS — Academics</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="academics.css" />
+  </head>
+  <body>
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul>
+        <li>
+          <a href="../index.html"><i class="fas fa-house"></i> Home</a>
+        </li>
+        <li>
+          <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        </li>
+        <li>
+          <a href="contact.html"><i class="fas fa-phone"></i> Contacts</a>
+        </li>
+        <li>
+          <a href="apply.html"><i class="fas fa-pen"></i> Apply to Study</a>
+        </li>
+        <li>
+          <a href="academics.html"><i class="fas fa-book"></i> Academics</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- HEADER -->
+    <header id="stickyHeader">
+      <nav class="navbar">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../Assets/STERKSPRUIT JSS.jpg" alt="Sterkspruit JSS Logo" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contacts</a></li>
+          <li><a href="apply.html">Apply to Study</a></li>
+          <li><a href="academics.html" class="active">Academics</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
     </header>
 
-    <div class="container my-5">
-        <section id="academics" class="mb-5 ">
-            <img src="https://via.placeholder.com/800x400" alt="Academic Overview" class="img-fluid mb-4">
-            <h2>ACADEMICS</h2>
-            <p>Nomzamo JSS offers a comprehensive educational program from Grade R to Grade 9, focusing on holistic development and academic excellence. Our curriculum is designed to foster critical thinking, creativity, and a love for learning. We provide a balanced mix of academic, cultural, and sports activities to ensure well-rounded growth for our students.</p>
-            <p>Grade Classes: Grade R to Grade 9</p>
-            <div class="dropdown mt-4">
-                <button class="btn btn-success dropdown-toggle" type="button" id="subjectsDropdown" onclick="toggleDropdown('compulsory-subjects'); toggleDropdown('choice-subjects');" aria-haspopup="true" aria-expanded="false">
-                    Subjects Offered
-                </button>
-                <div class="dropdown-menu" aria-labelledby="subjectsDropdown">
-                    <a class="dropdown-item" href="#" id="compulsory-subjects-link">Compulsory Subjects</a>
-                    <a class="dropdown-item" href="#" id="choice-subjects-link">Choice Subjects</a>
-                </div>
-            </div>
-            <div id="compulsory-subjects" class="mt-3 d-none">
-                <h3>Compulsory Subjects</h3>
-                <ul>
-                    <li>English Home Language</li>
-                    <li>Afrikaans First Additional Language</li>
-                    <li>Mathematics</li>
-                    <li>Natural Sciences</li>
-                    <li>Social Sciences</li>
-                    <li>Life Orientation</li>
-                </ul>
-            </div>
-            <div id="choice-subjects" class="mt-3 d-none">
-                <h3>Choice Subjects</h3>
-                <ul>
-                    <li>Creative Arts</li>
-                    <li>Economic and Management Sciences</li>
-                    <li>Technology</li>
-                </ul>
-            </div>
-        </section>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="hero-inner">
+        <div class="hero-eyebrow reveal">Curriculum</div>
+        <h1 class="reveal">Academics at<br />Sterkspruit JSS</h1>
+        <p class="sub reveal">
+          A rich, balanced programme designed to inspire critical thinking,
+          creativity, and a lifelong love of learning.
+        </p>
+        <div class="hero-stats reveal">
+          <div class="h-stat">
+            <span class="h-num">Grade 8–9</span>
+            <span class="h-lbl">Junior Secondary</span>
+          </div>
+          <div class="h-divider"></div>
+          <div class="h-stat">
+            <span class="h-num">9</span>
+            <span class="h-lbl">Subjects Offered</span>
+          </div>
+          <div class="h-divider"></div>
+          <div class="h-stat">
+            <span class="h-num">40+</span>
+            <span class="h-lbl">Dedicated Educators</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
 
-        <section id="educators" class="mb-5 ">
-            <img src="https://via.placeholder.com/800x400" alt="Educators" class="img-fluid mb-4">
-            <h2>EDUCATORS</h2>
-            <p>Our dedicated team of educators at Nomzamo JSS is committed to providing a nurturing and challenging environment for our students. Our faculty members are experts in their respective fields and bring a wealth of knowledge and experience to the classroom. They are passionate about teaching and are dedicated to helping each student achieve their full potential.</p>
-        </section>
-
-        <section id="sports" class="mb-5 ">
-            <img src="https://via.placeholder.com/800x400" alt="Sports" class="img-fluid mb-4">
-            <h2>SPORTS</h2>
-            <p>At Nomzamo JSS, we believe in the importance of physical activity and sports as part of a well-rounded education. Our sports program is designed to promote teamwork, discipline, and a healthy lifestyle. We offer a variety of sports to cater to the interests and abilities of all our students.</p>
-            <div class="dropdown mt-4">
-                <button class="btn btn-success dropdown-toggle" type="button" id="sportsDropdown" onclick="toggleDropdown('team-sports'); toggleDropdown('individual-sports');" aria-haspopup="true" aria-expanded="false">
-                    Sports Offered
-                </button>
-                <div class="dropdown-menu" aria-labelledby="sportsDropdown">
-                    <a class="dropdown-item" href="#" id="team-sports-link">Team Sports</a>
-                    <a class="dropdown-item" href="#" id="individual-sports-link">Individual Sports</a>
-                </div>
-            </div>
-            <div id="team-sports" class="mt-3 d-none">
-                <h3>Team Sports</h3>
-                <ul>
-                    <li>Soccer</li>
-                    <li>Basketball</li>
-                    <li>Netball</li>
-                    <li>Rugby</li>
-                </ul>
-            </div>
-            <div id="individual-sports" class="mt-3 d-none">
-                <h3>Individual Sports</h3>
-                <ul>
-                    <li>Athletics</li>
-                    <li>Swimming</li>
-                    <li>Tennis</li>
-                    <li>Table Tennis</li>
-                </ul>
-            </div>
-        </section>
+    <!-- MOTTO STRIP -->
+    <div class="motto-strip">
+      <div class="motto-ticker">
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+      </div>
     </div>
 
-    <footer class="bg-success text-white text-center p-4">
-        <p>&copy; 2024 Nomzamo Junior Secondary School. All rights reserved.</p>
+    <!-- OVERVIEW SECTION -->
+    <section class="overview-section">
+      <div class="container">
+        <div class="overview-grid reveal">
+          <div class="overview-image">
+            <img
+              src="../Assets/academics.jpeg"
+              alt="Academics at Sterkspruit JSS"
+            />
+            <div class="img-badge">
+              <i class="fas fa-graduation-cap"></i>
+              <span>Excellence in Education</span>
+            </div>
+          </div>
+          <div class="overview-content">
+            <span class="section-tag">Our Programme</span>
+            <h2 class="section-heading">
+              Shaping Minds,<br />Building Futures
+            </h2>
+            <p>
+              Sterkspruit JSS offers a comprehensive educational programme for
+              Grades 8 and 9, designed to foster critical thinking, creativity,
+              and a love for learning. Our curriculum provides a balanced mix of
+              academic, cultural, and extra-curricular activities to ensure
+              well-rounded growth for every learner.
+            </p>
+            <p>
+              We are committed to academic excellence while nurturing each
+              student's individual strengths — equipping them with the skills
+              and confidence to succeed in high school and beyond.
+            </p>
+            <div class="overview-pills">
+              <span class="pill"
+                ><i class="fas fa-check-circle"></i> Critical Thinking</span
+              >
+              <span class="pill"
+                ><i class="fas fa-check-circle"></i> Holistic Development</span
+              >
+              <span class="pill"
+                ><i class="fas fa-check-circle"></i> Life Skills</span
+              >
+              <span class="pill"
+                ><i class="fas fa-check-circle"></i> Cultural Activities</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBJECTS SECTION -->
+    <section class="subjects-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Curriculum</span>
+          <h2 class="section-heading">Subjects Offered</h2>
+          <p class="section-sub">
+            Our carefully designed subject mix combines compulsory foundations
+            with elective specialisations — giving each student a broad and
+            relevant education.
+          </p>
+        </div>
+
+        <div class="subjects-tabs reveal">
+          <button class="tab-btn active" data-tab="compulsory">
+            <i class="fas fa-book"></i> Compulsory Subjects
+          </button>
+          <button class="tab-btn" data-tab="elective">
+            <i class="fas fa-pen-nib"></i> Elective Subjects
+          </button>
+        </div>
+
+        <div class="tab-content active" id="tab-compulsory">
+          <div class="subject-grid">
+            <div class="subject-card reveal">
+              <div class="subject-icon"><i class="fas fa-language"></i></div>
+              <h3>English Home Language</h3>
+              <p>
+                Developing fluency, comprehension, and written expression in
+                English as a foundation for academic success.
+              </p>
+              <span class="subject-grade">Gr 8 – 9</span>
+            </div>
+            <div class="subject-card reveal">
+              <div class="subject-icon">
+                <i class="fas fa-comment-dots"></i>
+              </div>
+              <h3>isiXhosa Home Language</h3>
+              <p>
+                Honouring and advancing our mother-tongue language through
+                literature, communication, and cultural heritage.
+              </p>
+              <span class="subject-grade">Gr 8 – 9</span>
+            </div>
+            <div class="subject-card reveal">
+              <div class="subject-icon"><i class="fas fa-comments"></i></div>
+              <h3>Afrikaans FAL</h3>
+              <p>
+                Building competency in Afrikaans as a first additional language,
+                enriching South Africa's multilingual landscape.
+              </p>
+              <span class="subject-grade">Gr 8 – 9</span>
+            </div>
+            <div class="subject-card reveal">
+              <div class="subject-icon"><i class="fas fa-calculator"></i></div>
+              <h3>Mathematics</h3>
+              <p>
+                Cultivating logical reasoning, problem-solving, and numerical
+                proficiency to prepare learners for STEM pathways.
+              </p>
+              <span class="subject-grade">Gr 8 – 9</span>
+            </div>
+            <div class="subject-card reveal">
+              <div class="subject-icon"><i class="fas fa-flask"></i></div>
+              <h3>Natural Sciences</h3>
+              <p>
+                Exploring the physical, life, and earth sciences through
+                inquiry, observation, and hands-on investigation.
+              </p>
+              <span class="subject-grade">Gr 8 – 9</span>
+            </div>
+            <div class="subject-card reveal">
+              <div class="subject-icon">
+                <i class="fas fa-globe-africa"></i>
+              </div>
+              <h3>Social Sciences</h3>
+              <p>
+                Understanding history, geography, and society — developing
+                informed, empathetic, and engaged citizens.
+              </p>
+              <span class="subject-grade">Gr 8 – 9</span>
+            </div>
+            <div class="subject-card reveal">
+              <div class="subject-icon"><i class="fas fa-heart"></i></div>
+              <h3>Life Orientation</h3>
+              <p>
+                Equipping students with personal, social, and life skills — from
+                health and wellness to careers and civic responsibility.
+              </p>
+              <span class="subject-grade">Gr 8 – 9</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-elective">
+          <div class="subject-grid">
+            <div class="subject-card reveal">
+              <div class="subject-icon accent-gold">
+                <i class="fas fa-palette"></i>
+              </div>
+              <h3>Creative Arts</h3>
+              <p>
+                Nurturing self-expression through visual art, music, drama, and
+                dance — celebrating creativity in all its forms.
+              </p>
+              <span class="subject-grade subject-grade--elective"
+                >Elective</span
+              >
+            </div>
+            <div class="subject-card reveal">
+              <div class="subject-icon accent-gold">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Economic & Management Sciences</h3>
+              <p>
+                Building entrepreneurial thinking, financial literacy, and
+                business acumen for tomorrow's economy.
+              </p>
+              <span class="subject-grade subject-grade--elective"
+                >Elective</span
+              >
+            </div>
+            <div class="subject-card reveal">
+              <div class="subject-icon accent-gold">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <h3>Technology</h3>
+              <p>
+                Developing design thinking, problem-solving, and technical
+                skills through practical technology projects.
+              </p>
+              <span class="subject-grade subject-grade--elective"
+                >Elective</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTTO STRIP -->
+    <div class="motto-strip">
+      <div class="motto-ticker">
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+      </div>
+    </div>
+
+    <!-- EDUCATORS SECTION -->
+    <section class="educators-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Our People</span>
+          <h2 class="section-heading">Dedicated Educators</h2>
+          <p class="section-sub">
+            Our teachers are the heart of Sterkspruit JSS — passionate,
+            experienced professionals committed to unlocking every student's
+            potential.
+          </p>
+        </div>
+
+        <div class="educators-feature reveal">
+          <div class="edu-image">
+            <img src="../Assets/Staff.jpg" alt="Sterkspruit JSS Educators" />
+          </div>
+          <div class="edu-content">
+            <div class="edu-stat-row">
+              <div class="edu-stat">
+                <span class="edu-num">40+</span>
+                <span class="edu-lbl">Qualified Educators</span>
+              </div>
+              <div class="edu-stat">
+                <span class="edu-num">15+</span>
+                <span class="edu-lbl">Avg. Years Experience</span>
+              </div>
+              <div class="edu-stat">
+                <span class="edu-num">100%</span>
+                <span class="edu-lbl">SACE Certified</span>
+              </div>
+            </div>
+            <p>
+              Our educators bring a wealth of knowledge, passion, and experience
+              to every classroom. They are dedicated to creating a nurturing and
+              challenging environment where students are inspired to ask
+              questions, explore ideas, and achieve excellence.
+            </p>
+            <p>
+              Through continuous professional development, our teachers stay
+              current with the latest pedagogical practices — ensuring every
+              lesson is impactful, relevant, and engaging.
+            </p>
+            <div class="edu-values">
+              <div class="edu-value">
+                <i class="fas fa-bullseye"></i> Results-Driven
+              </div>
+              <div class="edu-value">
+                <i class="fas fa-users"></i> Collaborative
+              </div>
+              <div class="edu-value">
+                <i class="fas fa-lightbulb"></i> Innovative
+              </div>
+              <div class="edu-value">
+                <i class="fas fa-hands-holding-heart"></i> Compassionate
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPORTS SECTION -->
+    <section class="sports-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Beyond the Classroom</span>
+          <h2 class="section-heading">Sports & Activities</h2>
+          <p class="section-sub">
+            We believe in the power of sport to build character, teamwork, and
+            discipline. Our extensive programme caters to all interests and
+            abilities.
+          </p>
+        </div>
+
+        <div class="sports-grid">
+          <!-- Team Sports -->
+          <div class="sports-category reveal">
+            <div class="sports-cat-header">
+              <div class="sports-cat-icon"><i class="fas fa-users"></i></div>
+              <h3>Team Sports</h3>
+            </div>
+            <div class="sports-list">
+              <div class="sport-item">
+                <div class="sport-icon"><i class="fas fa-futbol"></i></div>
+                <div class="sport-info">
+                  <h4>Soccer</h4>
+                  <p>Boys & Girls teams competing in regional leagues</p>
+                </div>
+              </div>
+              <div class="sport-item">
+                <div class="sport-icon">
+                  <i class="fas fa-basketball-ball"></i>
+                </div>
+                <div class="sport-info">
+                  <h4>Basketball</h4>
+                  <p>Indoor courts available for training and competition</p>
+                </div>
+              </div>
+              <div class="sport-item">
+                <div class="sport-icon"><i class="fas fa-circle"></i></div>
+                <div class="sport-info">
+                  <h4>Netball</h4>
+                  <p>One of our most popular girls' team sports</p>
+                </div>
+              </div>
+              <div class="sport-item">
+                <div class="sport-icon">
+                  <i class="fas fa-football-ball"></i>
+                </div>
+                <div class="sport-info">
+                  <h4>Rugby</h4>
+                  <p>Building strength, strategy, and sportsmanship</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Individual Sports -->
+          <div class="sports-category reveal">
+            <div class="sports-cat-header">
+              <div class="sports-cat-icon accent-gold">
+                <i class="fas fa-person-running"></i>
+              </div>
+              <h3>Individual Sports</h3>
+            </div>
+            <div class="sports-list">
+              <div class="sport-item">
+                <div class="sport-icon accent-gold">
+                  <i class="fas fa-stopwatch"></i>
+                </div>
+                <div class="sport-info">
+                  <h4>Athletics</h4>
+                  <p>Track & field events at district and provincial level</p>
+                </div>
+              </div>
+              <div class="sport-item">
+                <div class="sport-icon accent-gold">
+                  <i class="fas fa-water"></i>
+                </div>
+                <div class="sport-info">
+                  <h4>Swimming</h4>
+                  <p>Competitive swimming across multiple strokes</p>
+                </div>
+              </div>
+              <div class="sport-item">
+                <div class="sport-icon accent-gold">
+                  <i class="fas fa-table-tennis-paddle-ball"></i>
+                </div>
+                <div class="sport-info">
+                  <h4>Table Tennis</h4>
+                  <p>Precision, focus, and reflexes — for all skill levels</p>
+                </div>
+              </div>
+              <div class="sport-item">
+                <div class="sport-icon accent-gold">
+                  <i class="fas fa-dumbbell"></i>
+                </div>
+                <div class="sport-info">
+                  <h4>Cross Country</h4>
+                  <p>Long-distance running building endurance and resilience</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERM DATES SECTION -->
+    <section class="termdates-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Academic Calendar</span>
+          <h2 class="section-heading">2025 Term Dates</h2>
+          <p class="section-sub">
+            Plan ahead with our official academic calendar for the 2025 school
+            year.
+          </p>
+        </div>
+
+        <div class="terms-grid reveal">
+          <div class="term-card">
+            <div class="term-num">Term 1</div>
+            <div class="term-dates">15 Jan – 28 Mar</div>
+            <div class="term-days">52 school days</div>
+            <div class="term-highlights">
+              <span><i class="fas fa-flag"></i> Welcome Assembly</span>
+              <span><i class="fas fa-pen"></i> Mid-term Tests</span>
+              <span
+                ><i class="fas fa-calendar-check"></i> End of Term Exams</span
+              >
+            </div>
+          </div>
+          <div class="term-card">
+            <div class="term-num">Term 2</div>
+            <div class="term-dates">7 Apr – 27 Jun</div>
+            <div class="term-days">55 school days</div>
+            <div class="term-highlights">
+              <span><i class="fas fa-trophy"></i> Sports Day</span>
+              <span><i class="fas fa-pen"></i> Mid-term Tests</span>
+              <span><i class="fas fa-calendar-check"></i> Winter Exams</span>
+            </div>
+          </div>
+          <div class="term-card">
+            <div class="term-num">Term 3</div>
+            <div class="term-dates">21 Jul – 26 Sep</div>
+            <div class="term-days">50 school days</div>
+            <div class="term-highlights">
+              <span><i class="fas fa-palette"></i> Cultural Day</span>
+              <span><i class="fas fa-pen"></i> Mid-term Tests</span>
+              <span><i class="fas fa-calendar-check"></i> Spring Exams</span>
+            </div>
+          </div>
+          <div class="term-card">
+            <div class="term-num">Term 4</div>
+            <div class="term-dates">6 Oct – 5 Dec</div>
+            <div class="term-days">45 school days</div>
+            <div class="term-highlights">
+              <span
+                ><i class="fas fa-graduation-cap"></i> Year-End Concert</span
+              >
+              <span><i class="fas fa-pen"></i> Final Exams</span>
+              <span><i class="fas fa-award"></i> Prize Giving</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="achievements-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Our Track Record</span>
+          <h2 class="section-heading">Academic Achievements</h2>
+        </div>
+        <div class="achievements-grid">
+          <div class="achievement-card reveal">
+            <div class="ach-icon"><i class="fas fa-trophy"></i></div>
+            <div class="ach-num">95%</div>
+            <div class="ach-label">Pass Rate (2024)</div>
+          </div>
+          <div class="achievement-card reveal">
+            <div class="ach-icon"><i class="fas fa-star"></i></div>
+            <div class="ach-num">30+</div>
+            <div class="ach-label">Distinctions Awarded</div>
+          </div>
+          <div class="achievement-card reveal">
+            <div class="ach-icon"><i class="fas fa-medal"></i></div>
+            <div class="ach-num">Top 5</div>
+            <div class="ach-label">District Ranking</div>
+          </div>
+          <div class="achievement-card reveal">
+            <div class="ach-icon"><i class="fas fa-users"></i></div>
+            <div class="ach-num">500+</div>
+            <div class="ach-label">Active Students</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTTO STRIP -->
+    <div class="motto-strip">
+      <div class="motto-ticker">
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-brand">
+        <img src="../Assets/STERKSPRUIT JSS.jpg" alt="Logo" />
+        <p>
+          Sterkspruit Junior Secondary School — shaping futures since the early
+          1990s.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-phone"></i> 061 324 2568</p>
+        <p><i class="fas fa-mobile-alt"></i> 085 256 8626</p>
+        <p><i class="fas fa-fax"></i> 072 681 2734</p>
+      </div>
+      <div class="footer-col">
+        <h3>Address</h3>
+        <p>
+          <i class="fas fa-map-marker-alt"></i> 1 Eskom Road,<br />Sterkspruit,
+          9762
+        </p>
+        <p><i class="fas fa-envelope"></i> P.O Box 1,<br />Sterkspruit, 9762</p>
+      </div>
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Sterkspruit Junior Secondary School. All rights reserved.
+        </p>
+      </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    function toggleDropdown(id) {
-        const element = document.getElementById(id);
-        if (element) {
-            element.classList.toggle('d-none');
-        }
-    }
-
-    window.toggleDropdown = toggleDropdown;
-});
-
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('compulsory-subjects-link').addEventListener('click', function(event) {
-                event.preventDefault();
-                document.getElementById('compulsory-subjects').classList.toggle('d-none');
-            });
-
-            document.getElementById('choice-subjects-link').addEventListener('click', function(event) {
-                event.preventDefault();
-                document.getElementById('choice-subjects').classList.toggle('d-none');
-            });
-
-            document.getElementById('team-sports-link').addEventListener('click', function(event) {
-                event.preventDefault();
-                document.getElementById('team-sports').classList.toggle('d-none');
-            });
-
-            document.getElementById('individual-sports-link').addEventListener('click', function(event) {
-                event.preventDefault();
-                document.getElementById('individual-sports').classList.toggle('d-none');
-            });
+      document.addEventListener("DOMContentLoaded", function () {
+        // ── Sticky header ────────────────────────────────────
+        const header = document.getElementById("stickyHeader");
+        window.addEventListener("scroll", function () {
+          header.classList.toggle("scrolled", window.scrollY > 60);
         });
-    </script>
-</body>
-</html>
 
+        // ── Sidebar ──────────────────────────────────────────
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        const sidebarClose = document.getElementById("sidebar-close");
+
+        function openSidebar() {
+          sidebar.classList.add("active");
+          overlay.classList.add("active");
+          hamburgerBtn.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+        function closeSidebar() {
+          sidebar.classList.remove("active");
+          overlay.classList.remove("active");
+          hamburgerBtn.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+
+        hamburgerBtn.addEventListener("click", openSidebar);
+        sidebarClose.addEventListener("click", closeSidebar);
+        overlay.addEventListener("click", closeSidebar);
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeSidebar();
+        });
+
+        // ── Subject tabs ─────────────────────────────────────
+        const tabBtns = document.querySelectorAll(".tab-btn");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabBtns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            const target = btn.dataset.tab;
+            tabBtns.forEach(function (b) {
+              b.classList.remove("active");
+            });
+            tabContents.forEach(function (c) {
+              c.classList.remove("active");
+            });
+            btn.classList.add("active");
+            document.getElementById("tab-" + target).classList.add("active");
+
+            // re-trigger reveals inside newly shown tab
+            document
+              .querySelectorAll("#tab-" + target + " .reveal")
+              .forEach(function (el) {
+                el.classList.add("visible");
+              });
+          });
+        });
+
+        // ── Scroll reveal ────────────────────────────────────
+        const reveals = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) entry.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+        );
+        reveals.forEach(function (el) {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>

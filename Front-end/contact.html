@@ -1,54 +1,550 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Nomzamo Junior Secondary School</title>
-    <link rel="stylesheet" href="contact.css">
-</head>
-<body>
-    <header>
-        <h1>Nomzamo Junior Secondary School</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sterkspruit JSS — Contact Us</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Leaflet for map -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    />
+
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul>
+        <li>
+          <a href="../index.html"><i class="fas fa-house"></i> Home</a>
+        </li>
+        <li>
+          <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        </li>
+        <li>
+          <a href="contact.html"><i class="fas fa-phone"></i> Contacts</a>
+        </li>
+        <li>
+          <a href="apply.html"><i class="fas fa-pen"></i> Apply to Study</a>
+        </li>
+        <li>
+          <a href="academics.html"><i class="fas fa-book"></i> Academics</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- HEADER -->
+    <header id="stickyHeader">
+      <nav class="navbar">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../Assets/STERKSPRUIT JSS.jpg" alt="Sterkspruit JSS Logo" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contacts</a></li>
+          <li><a href="apply.html">Apply to Study</a></li>
+          <li><a href="academics.html">Academics</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
     </header>
 
-    <main>
-        <section id="contact-info">
-            <h2>Contact Information</h2>
-            <p>Address: P.O. Box 394, Sterkspruit, 9762</p>
-            <p>Phone: (XXX) XXX-XXXX</p>
-            <p>Email: info@nomzamojschool.co.za</p>
-        </section>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="hero-inner">
+        <div class="hero-eyebrow reveal">We're Here For You</div>
+        <h1 class="reveal">Get in Touch</h1>
+        <p class="sub reveal">
+          Have a question, enquiry, or just want to know more about Sterkspruit
+          JSS? We'd love to hear from you — reach out and our team will respond
+          promptly.
+        </p>
+      </div>
+      <div class="hero-scroll-hint">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
 
-        <section id="contact-form">
-            <h2>Contact Us</h2>
-            <form action="send-email.php" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+    <!-- MOTTO STRIP -->
+    <div class="motto-strip">
+      <div class="motto-ticker">
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+      </div>
+    </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+    <!-- CONTACT CARDS -->
+    <section class="info-section">
+      <div class="container">
+        <div class="info-grid">
+          <div class="info-card reveal">
+            <div class="info-icon"><i class="fas fa-phone"></i></div>
+            <h3>Phone</h3>
+            <div class="info-lines">
+              <a href="tel:0613242568" class="info-link">
+                <i class="fas fa-phone"></i> 061 324 2568
+              </a>
+              <a href="tel:0852568626" class="info-link">
+                <i class="fas fa-mobile-alt"></i> 085 256 8626
+              </a>
+              <a href="tel:0726812734" class="info-link">
+                <i class="fas fa-fax"></i> 072 681 2734
+                <span class="info-tag">Fax</span>
+              </a>
+            </div>
+          </div>
 
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required>
+          <div class="info-card reveal">
+            <div class="info-icon green">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Address</h3>
+            <div class="info-lines">
+              <p>
+                <i class="fas fa-building"></i> 1 Eskom Road, Sterkspruit, 9762
+              </p>
+              <p>
+                <i class="fas fa-envelope"></i> P.O Box 1, Sterkspruit, 9762
+              </p>
+            </div>
+            <a
+              href="https://maps.google.com/?q=Sterkspruit+JSS"
+              target="_blank"
+              rel="noopener"
+              class="info-directions"
+            >
+              <i class="fas fa-route"></i> Get Directions
+            </a>
+          </div>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="6" required></textarea>
+          <div class="info-card reveal">
+            <div class="info-icon gold"><i class="fas fa-envelope"></i></div>
+            <h3>Email</h3>
+            <div class="info-lines">
+              <a href="mailto:info@sterkspruitors.co.za" class="info-link">
+                <i class="fas fa-envelope"></i> info@sterkspruitors.co.za
+              </a>
+              <a href="mailto:principal@sterkspruitors.co.za" class="info-link">
+                <i class="fas fa-user-tie"></i> principal@sterkspruitors.co.za
+              </a>
+            </div>
+          </div>
 
-                <input type="submit" value="Send">
+          <div class="info-card reveal">
+            <div class="info-icon dark"><i class="fas fa-clock"></i></div>
+            <h3>Office Hours</h3>
+            <div class="info-lines hours">
+              <div class="hours-row">
+                <span>Monday – Friday</span>
+                <span class="hours-time">07:30 – 14:30</span>
+              </div>
+              <div class="hours-row">
+                <span>Saturday</span>
+                <span class="hours-time closed">Closed</span>
+              </div>
+              <div class="hours-row">
+                <span>Sunday</span>
+                <span class="hours-time closed">Closed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM + MAP -->
+    <section class="form-map-section">
+      <div class="container">
+        <div class="form-map-grid">
+          <!-- CONTACT FORM -->
+          <div class="form-wrapper reveal">
+            <div class="section-header">
+              <span class="section-tag">Send a Message</span>
+              <h2 class="section-heading">Contact Us</h2>
+              <p class="section-sub">
+                Fill in the form below and we'll get back to you as soon as
+                possible.
+              </p>
+            </div>
+
+            <form id="contact-form" novalidate>
+              <div class="field-row two-col">
+                <div class="field-group">
+                  <label for="name"
+                    >Full Name <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="e.g. Sipho Dlamini"
+                    required
+                  />
+                  <span class="field-error">Please enter your name.</span>
+                </div>
+                <div class="field-group">
+                  <label for="email"
+                    >Email Address <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="e.g. sipho@email.com"
+                    required
+                  />
+                  <span class="field-error"
+                    >Please enter a valid email address.</span
+                  >
+                </div>
+              </div>
+
+              <div class="field-row two-col">
+                <div class="field-group">
+                  <label for="phone">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="e.g. 061 234 5678"
+                  />
+                </div>
+                <div class="field-group">
+                  <label for="category"
+                    >Enquiry Type <span class="req-star">*</span></label
+                  >
+                  <select id="category" name="category" required>
+                    <option value="">Select…</option>
+                    <option>General Enquiry</option>
+                    <option>Admissions</option>
+                    <option>Academics</option>
+                    <option>Sports & Activities</option>
+                    <option>Staff & Employment</option>
+                    <option>Other</option>
+                  </select>
+                  <span class="field-error"
+                    >Please select an enquiry type.</span
+                  >
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="subject"
+                    >Subject <span class="req-star">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Brief subject of your message"
+                    required
+                  />
+                  <span class="field-error">Please enter a subject.</span>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="message"
+                    >Message <span class="req-star">*</span></label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Write your message here…"
+                    required
+                  ></textarea>
+                  <span class="field-error">Please enter your message.</span>
+                </div>
+              </div>
+
+              <!-- Alert states (hidden by default) -->
+              <div
+                class="form-alert success"
+                id="form-success"
+                style="display: none"
+              >
+                <i class="fas fa-circle-check"></i>
+                <div>
+                  <strong>Message sent!</strong> Thank you for reaching out.
+                  We'll be in touch within 2 business days.
+                </div>
+              </div>
+              <div
+                class="form-alert error"
+                id="form-error"
+                style="display: none"
+              >
+                <i class="fas fa-circle-xmark"></i>
+                <div>
+                  <strong>Please fix the errors above</strong> before
+                  submitting.
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit" id="submit-btn">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
             </form>
-        </section>
-    </main>
+          </div>
 
+          <!-- MAP -->
+          <div class="map-wrapper reveal">
+            <div class="section-header">
+              <span class="section-tag">Our Location</span>
+              <h2 class="section-heading">Find Us</h2>
+              <p class="section-sub">
+                We're located at 1 Eskom Road, Sterkspruit — come visit us
+                during office hours.
+              </p>
+            </div>
+            <div id="map"></div>
+
+            <div class="map-address-pill">
+              <i class="fas fa-map-marker-alt"></i>
+              1 Eskom Road, Sterkspruit, 9762
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL + CTA BAND -->
+    <section class="social-band">
+      <div class="container">
+        <div class="social-band-inner reveal">
+          <div class="social-band-text">
+            <h3>Follow Us on Social Media</h3>
+            <p>Stay up to date with school news, events, and achievements.</p>
+          </div>
+          <div class="social-icons-large">
+            <a href="#" aria-label="Facebook" class="soc-btn facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" aria-label="Twitter" class="soc-btn twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" aria-label="Instagram" class="soc-btn instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="soc-btn linkedin">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTTO STRIP -->
+    <div class="motto-strip">
+      <div class="motto-ticker">
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+        <span>Forward Ever</span><span class="divider">◆</span>
+        <span>Backward Never</span><span class="divider">◆</span>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2024 Nomzamo Junior Secondary School. All rights reserved.</p>
+      <div class="footer-brand">
+        <img src="../Assets/STERKSPRUIT JSS.jpg" alt="Logo" />
+        <p>
+          Sterkspruit Junior Secondary School — shaping futures since the early
+          1990s.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-phone"></i> 061 324 2568</p>
+        <p><i class="fas fa-mobile-alt"></i> 085 256 8626</p>
+        <p><i class="fas fa-fax"></i> 072 681 2734</p>
+      </div>
+      <div class="footer-col">
+        <h3>Address</h3>
+        <p>
+          <i class="fas fa-map-marker-alt"></i> 1 Eskom Road,<br />Sterkspruit,
+          9762
+        </p>
+        <p><i class="fas fa-envelope"></i> P.O Box 1,<br />Sterkspruit, 9762</p>
+      </div>
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Sterkspruit Junior Secondary School. All rights reserved.
+        </p>
+      </div>
     </footer>
-</body>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // ── Sticky header ────────────────────────────────────
+        const header = document.getElementById("stickyHeader");
+        window.addEventListener("scroll", function () {
+          header.classList.toggle("scrolled", window.scrollY > 60);
+        });
+
+        // ── Sidebar ──────────────────────────────────────────
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        const sidebarClose = document.getElementById("sidebar-close");
+
+        function openSidebar() {
+          sidebar.classList.add("active");
+          overlay.classList.add("active");
+          hamburgerBtn.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+        function closeSidebar() {
+          sidebar.classList.remove("active");
+          overlay.classList.remove("active");
+          hamburgerBtn.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+        hamburgerBtn.addEventListener("click", openSidebar);
+        sidebarClose.addEventListener("click", closeSidebar);
+        overlay.addEventListener("click", closeSidebar);
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeSidebar();
+        });
+
+        // ── Scroll reveal ────────────────────────────────────
+        const reveals = document.querySelectorAll(".reveal");
+        const revealObs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) e.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+        );
+        reveals.forEach(function (el) {
+          revealObs.observe(el);
+        });
+
+        // ── Map ──────────────────────────────────────────────
+        const map = L.map("map").setView([-30.4876, 27.4279], 15);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+        L.marker([-30.4876, 27.4279])
+          .addTo(map)
+          .bindPopup("<b>Sterkspruit JSS</b><br>1 Eskom Road, Sterkspruit")
+          .openPopup();
+
+        // ── Contact form ─────────────────────────────────────
+        const form = document.getElementById("contact-form");
+        const submitBtn = document.getElementById("submit-btn");
+        const successEl = document.getElementById("form-success");
+        const errorEl = document.getElementById("form-error");
+
+        function validateField(field) {
+          const group = field.closest(".field-group");
+          const empty =
+            !field.value.trim() ||
+            (field.tagName === "SELECT" && field.value === "");
+          const emailBad =
+            field.type === "email" &&
+            field.value &&
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
+          if ((field.required && empty) || emailBad) {
+            group.classList.add("error");
+            return false;
+          }
+          group.classList.remove("error");
+          return true;
+        }
+
+        // Live validation on blur
+        form.querySelectorAll("[required]").forEach(function (field) {
+          field.addEventListener("blur", function () {
+            validateField(field);
+          });
+          field.addEventListener("input", function () {
+            if (field.closest(".field-group").classList.contains("error"))
+              validateField(field);
+          });
+        });
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          successEl.style.display = "none";
+          errorEl.style.display = "none";
+
+          let valid = true;
+          form.querySelectorAll("[required]").forEach(function (field) {
+            if (!validateField(field)) valid = false;
+          });
+
+          if (!valid) {
+            errorEl.style.display = "flex";
+            errorEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            return;
+          }
+
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Sending…';
+          submitBtn.disabled = true;
+
+          setTimeout(function () {
+            form.reset();
+            submitBtn.innerHTML =
+              '<i class="fas fa-paper-plane"></i> Send Message';
+            submitBtn.disabled = false;
+            successEl.style.display = "flex";
+            successEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }, 1400);
+        });
+      });
+    </script>
+  </body>
 </html>
